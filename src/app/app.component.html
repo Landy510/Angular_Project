@@ -1,31 +1,28 @@
-<header  style="padding-top: 10px; padding-bottom: 10px;">
-  <mat-toolbar class="header-toolbar">
+<header>
+  <div class="max-w-screen-lg mx-auto flex items-center">
     <img src="../assets/images/logo.svg" alt="logo">
-    <button style="color: #737373; text-decoration: none;" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+    <button class="md:!hidden" mat-icon-button aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
       <mat-icon>{{ sidenav.opened ? 'close' : 'menu' }}</mat-icon>
     </button>
-    <span>Angular Material 試做 Project</span>
-    <span class="example-spacer">
-      <a href="#" style="color: #737373; text-decoration: none;">
-        <p>找景點</p>
-        <p>ATTRACTION</p>
+    <span class="grow hidden md:flex justify-center">
+      <a href="#">
+        <p class="text-grey">找景點</p>
+        <p class="text-grey">ATTRACTION</p>
       </a>
-      <a href="#" style="margin-left: 56px; margin-right: 56px; color: #737373; text-decoration: none;">
-        <p>找美食</p>
-        <p>DELICACY</p>
+      <a href="#" class="mx-[56px]">
+        <p class="text-grey">找美食</p>
+        <p class="text-grey">DELICACY</p>
       </a>
-      <a href="#" style="color: #737373; text-decoration: none;">
-        <p>找活動</p>
-        <p>ACTIVITY</p>
+      <a href="#">
+        <p class="text-grey">找活動</p>
+        <p class="text-grey">ACTIVITY</p>
       </a>
     </span>
-    <button mat-icon-button color="primary">
-      <mat-icon>favorite_border</mat-icon>
-    </button>
-    <button mat-icon-button color="primary">
-      <img src="../assets/images/info.svg" alt="info" style="vertical-align: middle;">
-    </button>
-  </mat-toolbar>
+    <span class="ml-auto flex align-center">
+      <img src="../assets/images/favoriate_icon.png" alt="info" class="mr-4 cursor-pointer">
+      <img src="../assets/images/info.png" alt="info" class="cursor-pointer">
+    </span>
+  </div>
 </header>
 
 <mat-sidenav-container class="example-container">
