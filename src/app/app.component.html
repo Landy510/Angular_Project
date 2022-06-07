@@ -6,15 +6,15 @@
     </button>
     <span class="grow hidden md:flex justify-center">
       <a href="#">
-        <p class="text-grey">找景點</p>
+        <p class="text-grey text-center">找景點</p>
         <p class="text-grey">ATTRACTION</p>
       </a>
       <a href="#" class="mx-[56px]">
-        <p class="text-grey">找美食</p>
+        <p class="text-grey text-center">找美食</p>
         <p class="text-grey">DELICACY</p>
       </a>
       <a href="#">
-        <p class="text-grey">找活動</p>
+        <p class="text-grey text-center">找活動</p>
         <p class="text-grey">ACTIVITY</p>
       </a>
     </span>
@@ -25,8 +25,8 @@
   </div>
 </header>
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav class="example-sidenav" mode="push">
+<mat-sidenav-container class="whole-container">
+  <mat-sidenav #sidenav mode="push">
     <mat-nav-list>
       <a mat-list-item href="#" *ngFor="let link of links"> {{ link }} </a>
    </mat-nav-list>
