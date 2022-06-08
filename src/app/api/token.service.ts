@@ -1,6 +1,6 @@
+import Cookies from 'js-cookie'
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { token } from './types'
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,9 @@ export class TokenService {
       body,
       option
     )
-    .subscribe(res => this.token = res.access_token)
+    .subscribe(res =>  {
+      Cookies.set('token', res.access_token)
+      this.token = res.access_token
+    })
   }
 }
