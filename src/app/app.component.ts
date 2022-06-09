@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TokenService } from '../app/api/token.service'
+import { AuthService} from '../app/api/auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private tokenService: TokenService
+    private authService: AuthService
   ) {
     this.matIconRegistry.addSvgIconInNamespace(
       'custom-svg',
@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.tokenService.getToken()
+      this.authService.postToGetToken()
+      .subscribe({
+        next: (res) => this.authService.successSetCookie(`${res.token_type} ${res.access_token}`),
+        error: (err) => console.log('token acquire fail', err)
+      })
   }
 }

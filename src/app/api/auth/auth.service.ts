@@ -1,11 +1,13 @@
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { token } from './types'
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
-export class TokenService {
+export class AuthService {
   token = ''
   client_id = 'stealing610-0ee4792d-e572-423b'
   client_secret = '251bfba9-f771-413b-8d22-cb9853f687ab'
@@ -13,7 +15,15 @@ export class TokenService {
 
   constructor(private http: HttpClient) { }
 
-  getToken(): void {
+  get getToken() {
+    return Cookies.get('AUTH_TOKEN') || ''
+  }
+
+  setCookie(token: string) {
+    Cookies.set('AUTH_TOKEN', token, { path: '/'})
+  }
+
+  postToGetToken(): Observable<token> {
     const body = new URLSearchParams()
     body.set('grant_type', this.grant_type)
     body.set('client_id', this.client_id)
@@ -23,14 +33,14 @@ export class TokenService {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     }
 
-    this.http.post<token>(
+    return this.http.post<token> (
       'https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token',
       body,
       option
     )
-    .subscribe(res =>  {
-      Cookies.set('token', res.access_token)
-      this.token = res.access_token
-    })
+  }
+
+  successSetCookie(token: string) {
+    this.setCookie(token)
   }
 }
