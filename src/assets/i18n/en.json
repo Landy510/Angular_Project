@@ -3,5 +3,8 @@
     "header_attraction": "ATTRACTION",
     "header_delicacy": "DELICACY",
     "header_activity": "ACTIVITY"
+  },
+  "search": {
+    "title": "English Title"
   }
 }

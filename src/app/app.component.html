@@ -1,53 +1,56 @@
-<header>
-  <div class="max-w-screen-lg mx-auto flex items-center">
-    <button class="md:!hidden" mat-icon-button aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
-      <mat-icon>{{ sidenav.opened ? 'close' : 'menu' }}</mat-icon>
-    </button>
-    <img src="../assets/images/logo.svg" alt="logo" class="mx-auto md:mx-0 logo-picture">
-    <span class="grow hidden md:flex justify-center">
-      <a href="#">
-        <p class="text-grey text-center">{{'home.header_attraction' | translate }}</p>
-      </a>
-      <a href="#" class="mx-[56px]">
-        <p class="text-grey text-center">{{'home.header_delicacy' | translate }}</p>
-      </a>
-      <a href="#">
-        <p class="text-grey text-center">{{'home.header_activity' | translate }}</p>
-      </a>
-    </span>
-    <span class="ml-auto hidden md:flex align-center">
-      <img src="../assets/images/favoriate_icon.png" alt="info" class="mr-4 cursor-pointer">
-      <img src="../assets/images/info.png" alt="info" class="cursor-pointer">
-    </span>
-  </div>
-</header>
+<div class="flex flex-col h-full">
+  <header>
+    <div class="max-w-screen-lg mx-auto flex items-center">
+      <button class="md:!hidden" mat-icon-button aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+        <mat-icon>{{ sidenav.opened ? 'close' : 'menu' }}</mat-icon>
+      </button>
+      <img src="../assets/images/logo.svg" alt="logo" class="mx-auto md:mx-0 logo-picture cursor-pointer" routerLink="/">
+      <span class="grow hidden md:flex justify-center">
+        <a href="#">
+          <p class="text-grey text-center">{{'home.header_attraction' | translate }}</p>
+        </a>
+        <a href="#" class="mx-[56px]" routerLink="/search">
+          <p class="text-grey text-center">{{'home.header_delicacy' | translate }}</p>
+        </a>
+        <a href="#">
+          <p class="text-grey text-center">{{'home.header_activity' | translate }}</p>
+        </a>
+      </span>
+      <span class="ml-auto hidden md:flex align-center">
+        <img src="../assets/images/favoriate_icon.png" alt="info" class="mr-4 cursor-pointer">
+        <img src="../assets/images/info.png" alt="info" class="cursor-pointer">
+      </span>
+    </div>
+  </header>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="push">
-    <mat-nav-list>
-      <a mat-list-item href="#" *ngFor="let link of links"> {{ link }} </a>
-   </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container class="grow shrink-0">
+    <mat-sidenav #sidenav mode="push">
+      <mat-nav-list>
+        <a mat-list-item href="#" *ngFor="let link of links"> {{ link }} </a>
+     </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-<footer>
-  <div class="flex justify-between items-center max-w-screen-lg mx-auto py-4">
-    <p class="text-grey text-base">Follow us</p>
-    <p class="flex items-center">
-      <mat-icon svgIcon="custom-svg:facebook" class="footer-icon"></mat-icon>
-      <mat-icon svgIcon="custom-svg:instagram" class="footer-icon mx-4"></mat-icon>
-      <mat-icon svgIcon="custom-svg:youtube" class="footer-icon"></mat-icon>
-    </p>
-    <p class="text-grey font-normal opacity-50 text-xs">
-      Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Randy Chen.
-    </p>
-    <p>
-      <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'" (click)="switchLang('zh')">CH</span>
-      <span class="text-grey mx-6 footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'en'? 'opacity-100': 'opacity-50'" (click)="switchLang('en')">EN</span>
-      <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'ja'? 'opacity-100': 'opacity-50'" (click)="switchLang('ja')">JA</span>
-    </p>
-  </div>
-</footer>
+  <footer>
+    <div class="flex justify-between items-center max-w-screen-lg mx-auto py-4">
+      <p class="text-grey text-base">Follow us</p>
+      <p class="flex items-center">
+        <mat-icon svgIcon="custom-svg:facebook" class="footer-icon"></mat-icon>
+        <mat-icon svgIcon="custom-svg:instagram" class="footer-icon mx-4"></mat-icon>
+        <mat-icon svgIcon="custom-svg:youtube" class="footer-icon"></mat-icon>
+      </p>
+      <p class="text-grey font-normal opacity-50 text-xs">
+        Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Randy Chen.
+      </p>
+      <p>
+        <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'" (click)="switchLang('zh')">CH</span>
+        <span class="text-grey mx-6 footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'en'? 'opacity-100': 'opacity-50'" (click)="switchLang('en')">EN</span>
+        <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'ja'? 'opacity-100': 'opacity-50'" (click)="switchLang('ja')">JA</span>
+      </p>
+    </div>
+  </footer>
+</div>
+

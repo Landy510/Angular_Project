@@ -3,5 +3,8 @@
     "header_attraction": "找景點",
     "header_delicacy": "找美食",
     "header_activity": "找活動"
+  },
+  "search": {
+    "title": "中文標題"
   }
 }
