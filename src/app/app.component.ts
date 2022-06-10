@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService} from '../app/api/auth/auth.service';
 @Component({
   selector: 'app-root',
@@ -18,8 +19,11 @@ export class AppComponent implements OnInit {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private authService: AuthService
+    private authService: AuthService,
+    public translate: TranslateService,
   ) {
+    this.translate.addLangs(['zh', 'en', 'ja'])
+    this.translate.use('zh')
     this.matIconRegistry.addSvgIconInNamespace(
       'custom-svg',
       'angular',
@@ -45,5 +49,9 @@ export class AppComponent implements OnInit {
         next: (res) => this.authService.successSetCookie(`${res.token_type} ${res.access_token}`),
         error: (err) => console.log('token acquire fail', err)
       })
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
   }
 }

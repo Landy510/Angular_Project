@@ -6,16 +6,13 @@
     <img src="../assets/images/logo.svg" alt="logo" class="mx-auto md:mx-0 logo-picture">
     <span class="grow hidden md:flex justify-center">
       <a href="#">
-        <p class="text-grey text-center">找景點</p>
-        <p class="text-grey">ATTRACTION</p>
+        <p class="text-grey text-center">{{'home.header_attraction' | translate }}</p>
       </a>
       <a href="#" class="mx-[56px]">
-        <p class="text-grey text-center">找美食</p>
-        <p class="text-grey">DELICACY</p>
+        <p class="text-grey text-center">{{'home.header_delicacy' | translate }}</p>
       </a>
       <a href="#">
-        <p class="text-grey text-center">找活動</p>
-        <p class="text-grey">ACTIVITY</p>
+        <p class="text-grey text-center">{{'home.header_activity' | translate }}</p>
       </a>
     </span>
     <span class="ml-auto hidden md:flex align-center">
@@ -48,9 +45,9 @@
       Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Randy Chen.
     </p>
     <p>
-      <span class="text-grey footer-language font-semibold text-sm">CH</span>
-      <span class="text-grey mx-6 footer-language font-semibold text-sm">EN</span>
-      <span class="text-grey footer-language font-semibold text-sm">JA</span>
+      <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'" (click)="switchLang('zh')">CH</span>
+      <span class="text-grey mx-6 footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'en'? 'opacity-100': 'opacity-50'" (click)="switchLang('en')">EN</span>
+      <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'ja'? 'opacity-100': 'opacity-50'" (click)="switchLang('ja')">JA</span>
     </p>
   </div>
 </footer>
