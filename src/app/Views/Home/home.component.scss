@@ -1,7 +1,7 @@
 .banner-section {
   background: url('../../../assets/images/banner1.png') no-repeat center;
   background-size: cover;
-  height: 100%;
+  height: calc(100vh - 96px);
 }
 .scenic-intro {
   max-width: 560px;

@@ -24,6 +24,18 @@ export class AppComponent implements OnInit {
       'custom-svg',
       'angular',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/angular_solidBlack.svg'));
+    this.matIconRegistry.addSvgIconInNamespace(
+      'custom-svg',
+      'facebook',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/footer_facebook.svg'));
+    this.matIconRegistry.addSvgIconInNamespace(
+      'custom-svg',
+      'instagram',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/footer_instagram.svg'));
+    this.matIconRegistry.addSvgIconInNamespace(
+      'custom-svg',
+      'youtube',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/footer_youtube.svg'));
     this.matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
   }
 

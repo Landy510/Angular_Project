@@ -25,7 +25,7 @@
   </div>
 </header>
 
-<mat-sidenav-container class="whole-container">
+<mat-sidenav-container>
   <mat-sidenav #sidenav mode="push">
     <mat-nav-list>
       <a mat-list-item href="#" *ngFor="let link of links"> {{ link }} </a>
@@ -35,3 +35,22 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<footer>
+  <div class="flex justify-between items-center max-w-screen-lg mx-auto py-4">
+    <p class="text-grey text-base">Follow us</p>
+    <p class="flex items-center">
+      <mat-icon svgIcon="custom-svg:facebook" class="footer-icon"></mat-icon>
+      <mat-icon svgIcon="custom-svg:instagram" class="footer-icon mx-4"></mat-icon>
+      <mat-icon svgIcon="custom-svg:youtube" class="footer-icon"></mat-icon>
+    </p>
+    <p class="text-grey font-normal opacity-50 text-xs">
+      Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Randy Chen.
+    </p>
+    <p>
+      <span class="text-grey footer-language font-semibold text-sm">CH</span>
+      <span class="text-grey mx-6 footer-language font-semibold text-sm">EN</span>
+      <span class="text-grey footer-language font-semibold text-sm">JA</span>
+    </p>
+  </div>
+</footer>
