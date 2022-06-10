@@ -8,6 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApiService{
 
+  baseUrl = 'https://tdx.transportdata.tw/api/basic'
+
   contentHeader = new HttpHeaders({'Authorization': this.getToken})
 
   get getToken(): string {
@@ -16,7 +18,7 @@ export class ApiService{
 
   constructor(private http: HttpClient) { }
 
-  public get(url: string): Observable<any> {
-    return this.http.get<any>(url, { headers: this.contentHeader})
+  public get<T>(url: string): Observable<T> {
+    return this.http.get<T>(this.baseUrl + url, { headers: this.contentHeader})
   }
 }

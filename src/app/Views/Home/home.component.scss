@@ -1,5 +1,47 @@
 .banner-section {
-  background: url('../../../../assets/images/banner1.png') no-repeat center;
+  background: url('../../../assets/images/banner1.png') no-repeat center;
   background-size: cover;
   height: 100%;
+}
+.scenic-intro {
+  max-width: 560px;
+  flex-shrink: 0;
+  margin-left: 200px;
+}
+.scenic-pic {
+  height: 350px;
+  width: 251px;
+  border: 1px solid #000;
+}
+.writing-mode-vl {
+  writing-mode: vertical-lr;
+}
+.explore-more:hover {
+  cursor: pointer;
+}
+.explore-more+img {
+  transition: transform 0.5s;
+}
+.explore-more:hover+img {
+  transform: translateX(10px);
+}
+.subscribe-input {
+  background-color: transparent;
+  border: #fff;
+  height: 70px;
+}
+.subscribe-form {
+  border: 1px solid #fff;
+  opacity: 0.5;
+
+  input {
+    background-color: transparent;
+    color: #fff;
+  }
+  input::placeholder {
+    color: #fff;
+  }
+  input:focus {
+    outline: none;
+  }
 }

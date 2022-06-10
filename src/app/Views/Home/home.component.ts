@@ -1,5 +1,5 @@
-import { ApiService } from './../../api/api.service';
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../../api/home/home.service'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
-    this.api.get('https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot')
-    .subscribe(res => console.log('get all tourist spots', res))
+    this.homeService.getAllScenicSpots()
+      .subscribe(res => console.log(res))
   }
 
 }

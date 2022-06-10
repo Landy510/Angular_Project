@@ -33,7 +33,7 @@ export class AuthService {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     }
 
-    return this.http.post<token> (
+    return this.http.post<token> (  // 這邊的 url 保持完整的路徑，因為它的 baseUrl 跟別人不太一樣
       'https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token',
       body,
       option

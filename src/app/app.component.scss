@@ -1,3 +1,17 @@
 .whole-container {
-  height: calc(100vh - 96px);
+  height: calc(100vh - 60px);
+}
+
+.logo-picture {
+  height: 60px;
+}
+
+@media(min-width: 769px) {
+  .logo-picture {
+    height: 96px;
+  }
+
+  .whole-container {
+    height: calc(100vh - 96px);
+  }
 }

@@ -1,9 +1,9 @@
 <header>
   <div class="max-w-screen-lg mx-auto flex items-center">
-    <img src="../assets/images/logo.svg" alt="logo">
     <button class="md:!hidden" mat-icon-button aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
       <mat-icon>{{ sidenav.opened ? 'close' : 'menu' }}</mat-icon>
     </button>
+    <img src="../assets/images/logo.svg" alt="logo" class="mx-auto md:mx-0 logo-picture">
     <span class="grow hidden md:flex justify-center">
       <a href="#">
         <p class="text-grey text-center">找景點</p>
@@ -18,7 +18,7 @@
         <p class="text-grey">ACTIVITY</p>
       </a>
     </span>
-    <span class="ml-auto flex align-center">
+    <span class="ml-auto hidden md:flex align-center">
       <img src="../assets/images/favoriate_icon.png" alt="info" class="mr-4 cursor-pointer">
       <img src="../assets/images/info.png" alt="info" class="cursor-pointer">
     </span>
