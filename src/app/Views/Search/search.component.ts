@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { testInfo } from './type';
+
+
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  testObj: testInfo = { name: '' };
+
+  constructor() {
+    this.testObj = { name: '123' };
+  }
 
   ngOnInit(): void {
+  }
+
+  testFnc() {
+
   }
 
 }

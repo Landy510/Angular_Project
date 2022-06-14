@@ -1,0 +1,165 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": ["import"],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        // eslint
+        "function-call-argument-newline": ["error", "consistent"],
+        "function-paren-newline": ["error", "consistent"],
+        "array-bracket-newline": ["error", "consistent"],
+        "array-element-newline": ["error", "consistent"],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "max-len": ["error", 120],
+        "no-trailing-spaces": "error",
+        "lines-between-class-members": "error",
+        "space-in-parens": ["error", "never"],
+        "space-before-blocks": ["error", "always"],
+        "arrow-spacing": "error",
+        "space-infix-ops": "error",
+        "block-spacing": "error",
+        "object-curly-spacing": ["error", "always"],
+        "comma-dangle": [
+          "error",
+          {
+            "arrays": "always-multiline",
+            "objects": "ignore",
+            "imports": "always-multiline"
+          }
+        ],
+        "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
+
+        // Typescript
+        "indent": "off",
+        "@typescript-eslint/indent": ["error", 2],
+
+        "semi": "off",
+        "@typescript-eslint/semi": "error",
+
+        "keyword-spacing": "off",
+        "@typescript-eslint/keyword-spacing": "error",
+
+        "@typescript-eslint/type-annotation-spacing": "error",
+
+        // note you must disable the base rule as it can report incorrect errors
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "args": "none" }],
+
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+
+        // Import
+        "import/order": [
+          "error",
+          {
+            "pathGroups": [
+              {
+                "pattern": "@angular/**",
+                "group": "builtin"
+              },
+              {
+                "pattern": "@api/**",
+                "group": "internal"
+              },
+              {
+                "pattern": "@core/**",
+                "group": "internal"
+              },
+              {
+                "pattern": "@utils/**",
+                "group": "internal"
+              },
+              {
+                "pattern": "@shared/**",
+                "group": "internal"
+              }
+            ],
+
+            "groups": [
+              "builtin",
+              "external",
+              ["internal", "parent", "sibling"]
+            ],
+
+            "pathGroupsExcludedImportTypes": [],
+
+            "newlines-between": "always"
+          }
+        ],
+        "import/no-duplicates": "error",
+
+        // Angular
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/no-empty-lifecycle-method": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        "max-len": ["error", { "code": 140 }]
+      }
+    }
+    /*
+      The below is the setting of useing Prettier for HTML.
+      Because Prettier has a wired format on HTML, the setting is removed temporarily until the issue is solved.
+      https://github.com/prettier/prettier/issues/5377
+    */
+    // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
+    // {
+    //   "files": ["*.html"],
+    //   "extends": ["plugin:@angular-eslint/template/recommended"],
+    //   "rules": {}
+    // },
+    // NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
+    // {
+    //   "files": ["*.html"],
+    //   "excludedFiles": ["*inline-template-*.component.html"],
+    //   "extends": ["plugin:prettier/recommended"],
+    //   "rules": {
+    //     // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+    //     "prettier/prettier": ["error", { "parser": "angular" }],
+    //     "max-len": ["error", { "code": 140 }]
+    //   }
+    // }
+
+  ]
+}

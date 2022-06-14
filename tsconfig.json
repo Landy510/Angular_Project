@@ -22,7 +22,13 @@
       "es2020",
       "dom"
     ],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@api/*": ["src/app/api/*"],
+      "@assets/*": ["src/assets/*"],
+      "@views/*": ["src/app/Views/*"],
+      "@/*": ["src/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
