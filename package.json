@@ -5,11 +5,15 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:dev": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --fix"
   },
   "private": true,
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "@angular/animations": "~13.3.0",
     "@angular/cdk": "^13.3.8",

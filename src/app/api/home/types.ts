@@ -17,7 +17,7 @@ export interface ScenicSpot {
     PositionLat: string,
     GeoHash: string
   },
-  ParkingPosition: {},
+  ParkingPosition: undefined,
   TicketInfo: string,
   Remarks: string,
   SrcUpdateTime: string,

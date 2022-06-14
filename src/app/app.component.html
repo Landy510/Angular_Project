@@ -46,9 +46,19 @@
         Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Randy Chen.
       </p>
       <p>
-        <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'" (click)="switchLang('zh')">CH</span>
-        <span class="text-grey mx-6 footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'en'? 'opacity-100': 'opacity-50'" (click)="switchLang('en')">EN</span>
-        <span class="text-grey footer-language font-semibold text-sm" [ngClass]="translate.currentLang === 'ja'? 'opacity-100': 'opacity-50'" (click)="switchLang('ja')">JA</span>
+        <span
+          class="text-grey footer-language font-semibold text-sm"
+          [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'"
+          (click)="switchLang('zh')">CH
+        </span>
+        <span
+          class="text-grey mx-6 footer-language font-semibold text-sm"
+          [ngClass]="translate.currentLang === 'en'? 'opacity-100': 'opacity-50'"
+          (click)="switchLang('en')">EN</span>
+        <span
+          class="text-grey footer-language font-semibold text-sm"
+          [ngClass]="translate.currentLang === 'ja'? 'opacity-100': 'opacity-50'"
+          (click)="switchLang('ja')">JA</span>
       </p>
     </div>
   </footer>

@@ -13,6 +13,29 @@
   width: 251px;
   border: 1px solid #000;
 }
+.scenic-second-block {
+  margin-right: 35px;
+  display: flex;
+  justify-content: end;
+}
+@media(max-width: 769px) {
+  .scenic-intro {
+    max-width: 381px;
+    margin-left: 20px;
+    padding: 10px 15px;
+    h2 {
+      font-size: 42px;
+    }
+  }
+  .scenic-pic {
+    width: 208px;
+  }
+  .scenic-second-block {
+    margin-right: 0;
+    padding: 0 15px;
+    justify-content: start;
+  }
+}
 .writing-mode-vl {
   writing-mode: vertical-lr;
 }
