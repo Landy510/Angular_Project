@@ -18,7 +18,12 @@
   display: flex;
   justify-content: end;
 }
-@media(max-width: 769px) {
+@media(max-width: 1025px) {
+  .scenic-second-block {
+    justify-content: start;
+    margin-right: 0;
+    padding: 0 15px;
+  }
   .scenic-intro {
     max-width: 381px;
     margin-left: 20px;
@@ -29,11 +34,6 @@
   }
   .scenic-pic {
     width: 208px;
-  }
-  .scenic-second-block {
-    margin-right: 0;
-    padding: 0 15px;
-    justify-content: start;
   }
 }
 .writing-mode-vl {

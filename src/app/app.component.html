@@ -18,7 +18,7 @@
       </span>
       <span class="ml-auto hidden md:flex align-center">
         <img src="../assets/images/favoriate_icon.png" alt="info" class="mr-4 cursor-pointer">
-        <img src="../assets/images/info.png" alt="info" class="cursor-pointer">
+        <img src="../assets/images/info.png" alt="info" class="mr-4 cursor-pointer">
       </span>
     </div>
   </header>
@@ -35,17 +35,41 @@
   </mat-sidenav-container>
 
   <footer>
-    <div class="flex justify-between items-center max-w-screen-lg mx-auto py-4">
-      <p class="text-grey text-base">Follow us</p>
-      <p class="flex items-center">
+    <div class="flex justify-between items-center flex-col sm:flex-row max-w-screen-lg mx-auto py-4 px-2 lg:px-0">
+      <p class="text-grey text-base hidden lg:block">Follow us</p>
+      <p class="hidden sm:flex items-center">
         <mat-icon svgIcon="custom-svg:facebook" class="footer-icon"></mat-icon>
         <mat-icon svgIcon="custom-svg:instagram" class="footer-icon mx-4"></mat-icon>
         <mat-icon svgIcon="custom-svg:youtube" class="footer-icon"></mat-icon>
       </p>
-      <p class="text-grey font-normal opacity-50 text-xs">
-        Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Randy Chen.
-      </p>
-      <p>
+
+      <div class="text-grey font-normal opacity-50 text-xs flex flex-col lg:flex-row">
+        <div class="flex sm:hidden mb-4">
+          <p class="flex items-center">
+            <mat-icon svgIcon="custom-svg:facebook" class="footer-icon mr-6"></mat-icon>
+            <mat-icon svgIcon="custom-svg:instagram" class="footer-icon mr-6"></mat-icon>
+            <mat-icon svgIcon="custom-svg:youtube" class="footer-icon mr-6"></mat-icon>
+          </p>
+          <p class="block sm:hidden mobile-lang-sections pl-6">
+            <span
+              class="text-grey footer-language font-semibold text-sm mr-6"
+              [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'"
+              (click)="switchLang('zh')">CH
+            </span>
+            <span
+              class="text-grey footer-language font-semibold text-sm mr-6"
+              [ngClass]="translate.currentLang === 'en'? 'opacity-100': 'opacity-50'"
+              (click)="switchLang('en')">EN</span>
+            <span
+              class="text-grey footer-language font-semibold text-sm"
+              [ngClass]="translate.currentLang === 'ja'? 'opacity-100': 'opacity-50'"
+              (click)="switchLang('ja')">JA</span>
+          </p>
+        </div>
+        <span class="text-left sm:text-center">Copyright © 2021 TRAVEL. All rights reserved.</span>
+        <span class="text-left sm:text-center">Design by Lola , Front Developed by Randy Chen.</span>
+      </div>
+      <p class="hidden sm:block">
         <span
           class="text-grey footer-language font-semibold text-sm"
           [ngClass]="translate.currentLang === 'zh'? 'opacity-100': 'opacity-50'"
