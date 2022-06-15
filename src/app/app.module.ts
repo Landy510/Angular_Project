@@ -10,7 +10,8 @@ import { MatListModule } from '@angular/material/list';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HomeComponent } from '@views/Home/home.component';
+// import { HomeComponent } from '@views/Home/home.component';
+import { HomeModule } from '@views/Home/home.module';
 import { SearchComponent } from '@views/Search/search.component';
 
 import { AppComponent } from './app.component';
@@ -22,7 +23,7 @@ export function httpTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    // HomeComponent,
     SearchComponent,
   ],
   imports: [
@@ -35,6 +36,7 @@ export function httpTranslateLoader(http: HttpClient) {
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    HomeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

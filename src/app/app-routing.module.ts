@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+    // loadChildren: () => import('@views/Home/home.module').then(module => module.HomeModule)
   },
 ];
 

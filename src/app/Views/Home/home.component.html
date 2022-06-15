@@ -1,4 +1,14 @@
-<div class="banner-section"></div>
+<div class="banner-section">
+  <swiper
+    [config]="config"
+    class="h-full"
+  >
+    <ng-template swiperSlide *ngFor="let picUrl of bannerImages">
+      <div [ngStyle]="{'background-image': 'url(' + picUrl + ')'}" class="h-full w-full bg-cover bg-no-repeat bg-center"></div>
+    </ng-template>
+  </swiper>
+  <div class="custom-pagination"></div>
+</div>
 <section class="py-[160px] bg-white">
   <div class="flex overflow-x-hidden mb-10 bg-white">
     <div class="scenic-intro mr-6">
