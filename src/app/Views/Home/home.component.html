@@ -26,7 +26,15 @@
         <img class="ml-3" src="../../../assets/images/arrow.png" alt="arrow-icon" style="flex-shrink: 0;">
       </p>
     </div>
-    <div class="flex">
+    <swiper [loop]="false" [slidesPerView]="3">
+      <ng-template swiperSlide *ngFor="let n of bannerImages">
+        <div class="flex mr-8">
+          <div class="scenic-pic shrink-0"></div>
+          <h6 class="writing-mode-vl">台東金剛大道</h6>
+        </div>
+      </ng-template>
+    </swiper>
+    <!-- <div class="flex">
       <div class="flex mr-6">
         <div class="scenic-pic"></div>
         <h6 class="writing-mode-vl">台東金剛大道</h6>
@@ -43,7 +51,7 @@
         <div class="scenic-pic"></div>
         <h6 class="writing-mode-vl">台東金剛大道</h6>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="overflow-x-hidden scenic-second-block">
     <div class="flex mr-6">
