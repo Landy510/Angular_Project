@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
+import SwiperCore, { Pagination, SwiperOptions, Autoplay } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 
 import { HomeService } from '../../api/home/home.service';
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('swiper') swiper!: SwiperComponent;
 
   config: SwiperOptions = {
+    slidesPerView: 1,
     pagination: {
       clickable: true,
       el: '.custom-pagination'

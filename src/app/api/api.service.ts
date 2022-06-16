@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 import Cookies from 'js-cookie';
 
 @Injectable({
@@ -19,7 +20,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public get<T>(url: string): Observable<T> {
-    return this.http.get<T>(this.baseUrl + url, { headers: this.contentHeader });
+  public get(url: string): Observable<any> {
+    return this.http.get(this.baseUrl + url, { headers: this.contentHeader })
+      .pipe(retry(3));
   }
 }
