@@ -20,8 +20,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public get(url: string): Observable<any> {
-    return this.http.get(this.baseUrl + url, { headers: this.contentHeader })
+  public get<T>(url: string): Observable<T> {
+    return this.http.get<T>(this.baseUrl + url, { headers: this.contentHeader })
       .pipe(retry(3));
   }
 }
