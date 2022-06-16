@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
 
 import { HomeService } from '../../api/home/home.service';
 
@@ -11,16 +12,13 @@ SwiperCore.use([Pagination]);
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('swiper') swiper!: SwiperComponent;
 
   config: SwiperOptions = {
-    slidesPerView: 1,
-    spaceBetween: 50,
-    navigation: true,
     pagination: {
       clickable: true,
       el: '.custom-pagination'
-    },
-    scrollbar: { draggable: true },
+    }
   };
 
   bannerImages: Array<string> =  [
@@ -37,5 +35,4 @@ export class HomeComponent implements OnInit {
     this.homeService.getAllScenicSpots()
       .subscribe(res => console.log('scenic spot', res));
   }
-
 }

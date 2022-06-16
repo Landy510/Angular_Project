@@ -1,9 +1,15 @@
 <div class="banner-section">
   <swiper
+    #swiper
     [config]="config"
+    [autoplay]="{
+      delay: 5000,
+      disableOnInteraction: false
+    }"
+    [loop]="true"
     class="h-full"
   >
-    <ng-template swiperSlide *ngFor="let picUrl of bannerImages">
+    <ng-template swiperSlide *ngFor="let picUrl of bannerImages" class="swiper-slide">
       <div [ngStyle]="{'background-image': 'url(' + picUrl + ')'}" class="h-full w-full bg-cover bg-no-repeat bg-center"></div>
     </ng-template>
   </swiper>
