@@ -16,7 +16,7 @@
   <div class="custom-pagination"></div>
 </div>
 <section class="py-[160px] bg-white">
-  <div class="flex overflow-x-hidden mb-10 bg-white">
+  <div class="flex flex-col md:flex-row overflow-x-hidden mb-10 bg-white">
     <div class="scenic-intro mr-6">
       <h2 class="text-primary text-5xl font-semibold mb-6">Explore</h2>
       <h2 class="text-5xl font-medium mb-6">探索台灣每個角落</h2>
@@ -26,50 +26,39 @@
         <img class="ml-3" src="../../../assets/images/arrow.png" alt="arrow-icon" style="flex-shrink: 0;">
       </p>
     </div>
-    <swiper [loop]="false" [slidesPerView]="3">
+    <div class="scenic-second-block">
+      <swiper
+      [loop]="false"
+      [slidesPerView]="'auto'"
+      [centeredSlides]="true"
+      [breakpoints]="swiperBreakpoint1"
+      [slideClass]="'swiper-slide-fix-width'"
+      class="shrink-0">
       <ng-template swiperSlide *ngFor="let n of bannerImages">
-        <div class="flex mr-8">
+        <div class="flex mr-2 md:mr-10">
+          <div class="scenic-pic shrink-0"></div>
+          <h6 class="writing-mode-vl">台東金剛大道</h6>
+        </div>
+      </ng-template>
+      </swiper>
+    </div>
+  </div>
+  <div class="overflow-x-hidden scenic-second-block">
+    <swiper
+      [loop]="false"
+      [slidesPerView]="'auto'"
+      [centeredSlides]="true"
+      [breakpoints]="swiperBreakpoint"
+      [slideClass]="'swiper-slide-fix-width'"
+      class="md:translate-x-[30%]"
+    >
+      <ng-template swiperSlide *ngFor="let n of bannerImages">
+        <div class="flex mr-2 md:mr-6">
           <div class="scenic-pic shrink-0"></div>
           <h6 class="writing-mode-vl">台東金剛大道</h6>
         </div>
       </ng-template>
     </swiper>
-    <!-- <div class="flex">
-      <div class="flex mr-6">
-        <div class="scenic-pic"></div>
-        <h6 class="writing-mode-vl">台東金剛大道</h6>
-      </div>
-      <div class="flex mr-6">
-        <div class="scenic-pic"></div>
-        <h6 class="writing-mode-vl">台東金剛大道</h6>
-      </div>
-      <div class="flex mr-6">
-        <div class="scenic-pic"></div>
-        <h6 class="writing-mode-vl">台東金剛大道</h6>
-      </div>
-      <div class="flex mr-6">
-        <div class="scenic-pic"></div>
-        <h6 class="writing-mode-vl">台東金剛大道</h6>
-      </div>
-    </div> -->
-  </div>
-  <div class="overflow-x-hidden scenic-second-block">
-    <div class="flex mr-6">
-      <div class="scenic-pic"></div>
-      <h6 class="writing-mode-vl">台東金剛大道</h6>
-    </div>
-    <div class="flex mr-6">
-      <div class="scenic-pic"></div>
-      <h6 class="writing-mode-vl">台東金剛大道</h6>
-    </div>
-    <div class="flex mr-6">
-      <div class="scenic-pic"></div>
-      <h6 class="writing-mode-vl">台東金剛大道</h6>
-    </div>
-    <div class="flex mr-6">
-      <div class="scenic-pic"></div>
-      <h6 class="writing-mode-vl">台東金剛大道</h6>
-    </div>
   </div>
 </section>
 <section class="bg-primary lg:h-[620px]">

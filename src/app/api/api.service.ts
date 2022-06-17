@@ -12,7 +12,7 @@ export class ApiService {
 
   baseUrl = 'https://tdx.transportdata.tw/api/basic';
 
-  contentHeader = new HttpHeaders({ 'Authorization': this.getToken });
+  protected contentHeader = new HttpHeaders({ 'Authorization': this.getToken });
 
   get getToken(): string {
     return Cookies.get('AUTH_TOKEN') || '';

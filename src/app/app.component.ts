@@ -54,7 +54,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.postToGetToken()
       .subscribe({
-        next: (res) => this.authService.successSetCookie(`${res.token_type} ${res.access_token}`),
+        next: (res) => {
+          this.authService.successSetCookie(`${res.token_type} ${res.access_token}`);
+        },
         error: (err) => console.log('token acquire fail', err)
       });
   }

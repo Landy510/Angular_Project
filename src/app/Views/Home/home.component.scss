@@ -90,3 +90,6 @@
     background: #fff;
   }
 }
+::ng-deep .swiper-slide-fix-width {
+  width: unset !important;
+}

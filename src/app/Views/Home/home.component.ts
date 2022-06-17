@@ -22,6 +22,24 @@ export class HomeComponent implements OnInit {
     }
   };
 
+  swiperBreakpoint1 = {
+    768: {
+      slidesPerView: 2,
+      centeredSlides: false
+    },
+    1024: {
+      slidesPerView: 3,
+      centeredSlides: false
+    }
+  };
+
+  swiperBreakpoint = {
+    768: {
+      slidesPerView: 2,
+      centeredSlides: false
+    }
+  };
+
   bannerImages: Array<string> =  [
     'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2815&w=1280&h=960',
     'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2839&w=1280&h=960',
@@ -34,6 +52,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.getAllScenicSpots()
-      .subscribe(res => console.log('scenic spot', res));
+      .subscribe({
+        next: res => console.log('scenic spot', res),
+        error: err => console.log('scenic error', err)
+      });
   }
 }
