@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import Cookies from 'js-cookie';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { token } from './types';
 
@@ -18,14 +18,13 @@ export class AuthService {
 
   grant_type = 'client_credentials';
 
-  constructor(private http: HttpClient) { }
+  token$ = new BehaviorSubject<string>('');
 
-  get getToken() {
-    return Cookies.get('AUTH_TOKEN') || '';
-  }
+  constructor(private http: HttpClient) { }
 
   setCookie(token: string) {
     Cookies.set('AUTH_TOKEN', token, { path: '/' });
+    this.token$.next(token);
   }
 
   postToGetToken(): Observable<token> {
