@@ -91,5 +91,6 @@
   }
 }
 ::ng-deep .swiper-slide-fix-width {
-  width: unset !important;
+  // width: unset !important;
+  width: auto !important;
 }

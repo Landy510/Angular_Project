@@ -23,6 +23,19 @@ export class HomeComponent implements OnInit {
   };
 
   swiperBreakpoint1 = {
+    414: {
+      slidesPerView: 2,
+    },
+    769: {
+      slidesPerView: 1.5,
+      slidesPerGroup: 1
+    },
+    1024: {
+      slidesPerView: 2.5,
+    }
+  };
+
+  swiperBreakpoint = {
     768: {
       slidesPerView: 2,
       centeredSlides: false
@@ -33,19 +46,11 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  swiperBreakpoint = {
-    768: {
-      slidesPerView: 2,
-      centeredSlides: false
-    }
-  };
-
   bannerImages: Array<string> =  [
     'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2815&w=1280&h=960',
     'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2839&w=1280&h=960',
     'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2887&w=1280&h=960',
     'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2854&w=1280&h=960',
-    'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2834&w=1280&h=960',
   ];
 
   constructor(private homeService: HomeService) { }
