@@ -36,6 +36,11 @@
     width: 208px;
   }
 }
+@media(max-width: 769px) {
+  .banner-section {
+    height: calc(100vh - 60px);
+  }
+}
 .writing-mode-vl {
   writing-mode: vertical-lr;
 }
