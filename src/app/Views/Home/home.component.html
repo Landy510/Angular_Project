@@ -34,16 +34,16 @@
         [spaceBetween]="30"
         [slideClass]="'swiper-slide-fix-width'"
       >
-        <ng-template swiperSlide *ngFor="let n of bannerImages; index as i">
+        <ng-template swiperSlide *ngFor="let n of bannerImages">
           <div class="flex">
             <div class="scenic-pic shrink-0"></div>
-            <h6 class="writing-mode-vl">台東金剛大道 {{ i }}</h6>
+            <h6 class="writing-mode-vl">台東金剛大道</h6>
           </div>
         </ng-template>
       </swiper>
     </div>
   </div>
-  <div class="overflow-x-hidden scenic-second-block">
+  <div class="overflow-x-hidden scenic-second-block pb-3">
     <swiper
       [loop]="false"
       [slidesPerView]="'auto'"
