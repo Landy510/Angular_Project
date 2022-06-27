@@ -21,20 +21,20 @@
       <h2 class="text-primary text-5xl font-semibold mb-6">Explore</h2>
       <h2 class="text-5xl font-medium mb-6">探索台灣每個角落</h2>
       <p class="text-grey mb-8">台灣擁有高山峽谷及四面環海地理特性，因此充滿各種自然景致等待人們發現，而各縣市有其特色文化與在地必嚐美食，無論想要來場山林陶冶身心之旅，抑或體驗歷史人文深度旅行，都能在台灣這片土地上踏尋。</p>
-      <p class="flex items-center">
+      <p class="flex items-center scenic-intro-more">
         <span class="text-primary explore-more">探索更多景色</span>
         <img class="ml-3" src="../../../assets/images/arrow.png" alt="arrow-icon" style="flex-shrink: 0;">
       </p>
     </div>
     <div class="flex ml-9 sm:ml-0">
-      <div class="scenic-second-block" *ngFor="let n of bannerImages">
-        <div class="scenic-pic shrink-0"></div>
-        <h6 class="writing-mode-vl">台東金剛大道</h6>
+      <div class="scenic-second-block" *ngFor="let view of secondBlockImageFirstRow">
+        <div [ngStyle]="{'background-image': 'url(' + view.picUrl + ')'}" class="scenic-pic shrink-0 bg-cover bg-no-repeat bg-center"></div>
+        <h6 class="writing-mode-vl">{{ view.title }}</h6>
       </div>
     </div>
   </div>
   <div class="scenic-second-block pb-3">
-    <div class="scenic-intro mr-4 flex flex-col justify-around">
+    <!-- <div class="scenic-intro mr-4 flex flex-col justify-around">
       <a href="#" class="scenic-intro-option">
         <span class="ml-5">都市文情：北台灣</span>
       </a>
@@ -50,10 +50,10 @@
       <a href="#" class="scenic-intro-option">
         <span class="ml-5">小島風情：離島地區</span>
       </a>
-    </div>
-    <div class="scenic-second-block" *ngFor="let n of [1, 2, 3, 4]">
-      <div class="scenic-pic shrink-0"></div>
-      <h6 class="writing-mode-vl">台東金剛大道</h6>
+    </div> -->
+    <div class="scenic-second-block" *ngFor="let view of secondBlockImageSecondRow">
+      <div [ngStyle]="{'background-image': 'url(' + view.picUrl + ')'}" class="scenic-pic shrink-0 bg-cover bg-no-repeat bg-center"></div>
+      <h6 class="writing-mode-vl">{{ view.title }}</h6>
     </div>
   </div>
 </section>

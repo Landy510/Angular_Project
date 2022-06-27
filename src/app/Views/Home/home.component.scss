@@ -9,32 +9,37 @@
   margin-left: 190px;
 }
 .scenic-pic {
+  border-radius: 5px;
   height: 350px;
   width: 251px;
-  border: 1px solid #000;
 }
 .scenic-second-block {
   margin-right: 15px;
   display: flex;
+  justify-content: flex-end;
 }
-.scenic-intro-option {
-  color: #737373;
-  position: relative;
-}
-.scenic-intro-option:hover.scenic-intro-option span {
-  color: #769763;
-}
-.scenic-intro-option::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #F1D675;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+
+// --- 設計稿看起來不需要 --- //
+// .scenic-intro-option {
+//   color: #737373;
+//   position: relative;
+// }
+// .scenic-intro-option:hover.scenic-intro-option span {
+//   color: #769763;
+// }
+// .scenic-intro-option::before {
+//   content: '';
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   background-color: #F1D675;
+//   position: absolute;
+//   left: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+// --- 設計稿看起來不需要 --- //
+
 @media(max-width: 1025px) {
   .scenic-intro {
     max-width: 381px;
@@ -51,16 +56,32 @@
   .banner-section {
     height: calc(100vh - 60px);
   }
+  // .scenic-second-block {
+  //   justify-content: center;
+  // }
 }
 @media(max-width: 641px) {
   .scenic-intro {
     max-width: none;
+    .scenic-intro-more {
+      margin-bottom: 10px;
+    }
   }
 }
 @media(max-width: 391px) {
   .scenic-pic {
     height: 170px;
     width: 118px;
+  }
+  .scenic-intro {
+    margin-left: 0;
+    padding: 0 20px;
+    h2 {
+      font-size: 28px;
+    }
+    .scenic-intro-more {
+      display: none;
+    }
   }
 }
 .writing-mode-vl {
