@@ -27,48 +27,37 @@
       </p>
     </div>
     <div class="flex ml-9 sm:ml-0">
-      <div class="scenic-second-block" *ngFor="let view of secondBlockImageFirstRow">
-        <div [ngStyle]="{'background-image': 'url(' + view.picUrl + ')'}" class="scenic-pic shrink-0 bg-cover bg-no-repeat bg-center"></div>
+      <div class="scenic-second-block shrink-0" *ngFor="let view of secondBlockImageFirstRow">
+        <div class="shrink-0 overflow-hidden rounded">
+          <img class="scenic-pic h-full object-cover" [src]="view.picUrl" alt="view.picUrl">
+        </div>
         <h6 class="writing-mode-vl">{{ view.title }}</h6>
       </div>
     </div>
   </div>
-  <div class="scenic-second-block pb-3">
-    <!-- <div class="scenic-intro mr-4 flex flex-col justify-around">
-      <a href="#" class="scenic-intro-option">
-        <span class="ml-5">都市文情：北台灣</span>
-      </a>
-      <a href="#" class="scenic-intro-option">
-        <span class="ml-5">休閒樂活：中台灣</span>
-      </a>
-      <a href="#" class="scenic-intro-option">
-        <span class="ml-5">人情小吃：南台灣</span>
-      </a>
-      <a href="#" class="scenic-intro-option">
-        <span class="ml-5">自然生態：東台灣</span>
-      </a>
-      <a href="#" class="scenic-intro-option">
-        <span class="ml-5">小島風情：離島地區</span>
-      </a>
-    </div> -->
-    <div class="scenic-second-block" *ngFor="let view of secondBlockImageSecondRow">
-      <div [ngStyle]="{'background-image': 'url(' + view.picUrl + ')'}" class="scenic-pic shrink-0 bg-cover bg-no-repeat bg-center"></div>
+  <div class="flex justify-end mr-4 pb-3">
+    <div class="scenic-second-block shrink-0" *ngFor="let view of secondBlockImageSecondRow">
+      <div class="shrink-0 overflow-hidden rounded">
+        <img class="scenic-pic h-full object-cover" [src]="view.picUrl" alt="view.picUrl">
+      </div>
       <h6 class="writing-mode-vl">{{ view.title }}</h6>
     </div>
   </div>
 </section>
 <section class="bg-primary lg:h-[620px]">
   <div class="flex flex-col lg:flex-row lg:items-center lg:justify-center h-full max-w-screen-lg mx-auto">
-    <img class="lg:mr-6" src="../../../assets/images/subscribe_img.png" alt="subscribe_img">
-    <div class="px-10 pt-10 pb-[224px]">
+    <div>
+      <img class="w-full lg:w-auto lg:mr-6" src="../../../assets/images/subscribe_img.png" alt="subscribe_img">
+    </div>
+    <div class="px-10 pb-[224px] pt-[30px] lg:py-0 shrink-0">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-yellow mb-6">Subscribe</h2>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-6">每個月來場放鬆旅行</h2>
       <p class="text-white font-normal mb-4">如果你願意收到每月旅遊資訊，一起感受台灣旅行的美好。</p>
-      <form class="flex subscribe-form py-3 rounded">
-        <input class="ml-6" type="text" placeholder="youremail@example.com">
-        <button class="!ml-auto" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <form class="flex justify-between subscribe-form p-3 rounded">
+        <input type="text" placeholder="youremail@example.com">
+        <button class="h-[24px] w-[24px]" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
           <mat-icon>
-            <img src="../../../assets/images/subscribe_icon.svg" alt="subscribe_icon">
+            <img class="h-full" src="../../../assets/images/subscribe_icon.svg" alt="subscribe_icon">
           </mat-icon>
         </button>
       </form>
