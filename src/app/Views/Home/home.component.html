@@ -1,5 +1,5 @@
 <div class="banner-section">
-  <form class="form">
+  <form class="form px-5 md:px-0">
     <div class="search-input mb-5">
       <input
         id="username"
@@ -11,14 +11,16 @@
         <mat-icon class="search-icon" svgIcon="custom-svg:search">search</mat-icon>
       </button>
     </div>
-    <div class="flex justify-between">
-      <div class="relative flex-grow mr-8">
+    <div class="flex justify-between flex-col md:flex-row">
+      <div class="relative flex-grow mb-5 md:mr-8 md:mb-0">
         <span class="flex">
           <input
             id="username"
             type="text"
             [placeholder]="'HOME.BANNER_SECTION_INPUT_TYPE' | translate"
-            class="w-full pl-[10px]"
+            class="w-full pl-[10px] bg-white"
+            [disabled]="true"
+            [value]="typeOption"
           >
           <button type="button" class="bg-white p-[10px] flex items-center" (click)="toggle(dropdown1)">
             <mat-icon color="primary">arrow_drop_down</mat-icon>
@@ -26,33 +28,45 @@
         </span>
         <div class="z-10 bg-white hidden divide-y divide-gray-100 rounded shadow dark:bg-gray-700 absolute w-full mt-1" #dropdown1>
           <ul class="dropdownList py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-            <li class="px-3">
-              <a href="#" class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">旅遊景點</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">觀光活動</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">美食品嚐</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">住宿推薦</a>
+            <li class="px-3" *ngFor="let item of typeList">
+              <a
+                href="#"
+                class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-center"
+                (click)="setSearchContent(dropdown1, item, 'type')"
+              >{{ item }}
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <span class="flex flex-grow">
-        <input
-          id="username"
-          type="text"
-          [placeholder]="'HOME.BANNER_SECTION_INPUT_CITY' | translate"
-          class="w-full pl-[10px]"
-        >
-        <button type="button" class="bg-white p-[10px] flex items-center">
-          <mat-icon color="primary">arrow_drop_down</mat-icon>
-        </button>
-      </span>
+      <div class="relative flex-grow">
+        <span class="flex">
+          <input
+            id="username"
+            type="text"
+            [placeholder]="'HOME.BANNER_SECTION_INPUT_CITY' | translate"
+            class="w-full pl-[10px] bg-white"
+            [disabled]="true"
+            [value]="cityOption"
+          >
+          <button type="button" class="bg-white p-[10px] flex items-center" (click)="toggle(dropdown2)">
+            <mat-icon color="primary">arrow_drop_down</mat-icon>
+          </button>
+        </span>
+        <div class="z-10 bg-white hidden divide-y divide-gray-100 rounded shadow dark:bg-gray-700 absolute w-full mt-1" #dropdown2>
+          <ul class="dropdownList py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+            <li class="px-3" *ngFor="let item of cityList">
+              <a
+                href="#"
+                class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-center"
+                (click)="setSearchContent(dropdown2, item, 'city')"
+              >{{ item }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </form>
 </div>

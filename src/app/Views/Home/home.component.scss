@@ -31,8 +31,9 @@
   }
 }
 .dropdownList {
-  li a {
+  max-height: 200px;
+  overflow-y: scroll;
+  li:not(:last-child) a {
     border-bottom: 1px solid #F4F4F4;
-    text-align: center;
   }
 }
