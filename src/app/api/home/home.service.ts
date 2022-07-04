@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from '../api.service';
-import { ScenicSpot } from './types';
+import { ScenicSpot, ActivityList } from './types';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,4 +14,9 @@ export class HomeService {
   getAllScenicSpots(): Observable<Array<ScenicSpot>> {
     return this.api.get('/v2/Tourism/ScenicSpot');
   }
+
+  getAllActivityList(): Observable<Array<ActivityList>> {
+    return this.api.get('/v2/Tourism/Activity');
+  }
+
 }

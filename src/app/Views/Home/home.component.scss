@@ -38,6 +38,7 @@
   }
 }
 .travel-scenic-section {
+  padding-bottom: 20px;
   .scenic-block {
     display: flex;
     align-items: center;
@@ -78,3 +79,26 @@
   }
 }
 
+.activity-block {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px 5px rgba(229, 229, 229, 1);
+
+  .activity-block-image {
+    width: 385px;
+    height: 168px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .activity-block-intro {
+    padding: 10px 15px;
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

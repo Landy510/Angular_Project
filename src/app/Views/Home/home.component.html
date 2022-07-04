@@ -76,9 +76,36 @@
     <span
       *ngFor="let item of scenicList"
       class="scenic-block bg-center bg-cover mb-5"
-      [ngStyle]="{'background-image': 'url(' + item.picUrl + ')'}"
+      [ngStyle]="{'background-image': 'url(' + item.Picture.PictureUrl1 + ')'}"
     >
-      <h3>{{ item.title }}</h3>
+      <h3>{{ item.ScenicSpotName }}</h3>
     </span>
+  </div>
+</div>
+<div style="height: 20px;" class="bg-grey"></div>
+<div class="reading-more-section mt-5 pb-[20px]">
+  <div class="activity-section">
+    <div class="flex justify-center">
+      <h2 class="font-bold text-3xl text-center mb-5">觀光活動</h2>
+      <button class="bg-primary ml-auto" type="button">查看更多</button>
+    </div>
+
+    <div class="flex justify-around flex-wrap">
+      <div
+        *ngFor="let item of activityList"
+        class="activity-block mb-5"
+      >
+        <div
+          class="activity-block-image"
+          [ngStyle]="{'background-image': 'url(' + item.Picture.PictureUrl1 + ')'}"
+        >
+        </div>
+        <div class="activity-block-intro">
+          <h3>{{ item.ActivityName }} </h3>
+          <p> {{ item.Address }} </p>
+          <p> {{ item.StartTime | date: 'yyyy/M/d' }} - {{ item.EndTime | date: 'yyyy/M/d' }} </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
