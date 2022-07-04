@@ -10,13 +10,12 @@ import { MatListModule } from '@angular/material/list';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-// import { HomeComponent } from '@views/Home/home.component';
-import { HomeModule } from '@views/Home/home.module';
-import { SearchComponent } from '@views/Search/search.component';
+import { HomeModule } from '@views/home/home.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TokenAuthHttpInterceptor } from '@api/interceptor/token-auth-http-interceptor';
+import { HeaderComponent } from './Views/header/header.component';
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -24,8 +23,7 @@ export function httpTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    // HomeComponent,
-    SearchComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

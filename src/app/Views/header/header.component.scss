@@ -1,0 +1,20 @@
+.header-section {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.header-option {
+  position: relative;
+}
+.header-option:before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-option:hover.header-option:before {
+  background-color: #FD975E;
+}

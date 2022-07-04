@@ -1,8 +1,11 @@
 {
-  "home": {
-    "header_attraction": "找景點",
-    "header_delicacy": "找美食",
-    "header_activity": "找活動"
+  "HOME": {
+    "HEADER_ATTRACTION": "旅遊景點",
+    "HEADER_ACCOMMODATION":"推薦住宿",
+    "HEADER_DELICACY": "美食饗宴",
+    "BANNER_SECTION_INPUT_KEYWORD": "搜尋關鍵字",
+    "BANNER_SECTION_INPUT_TYPE": "類別",
+    "BANNER_SECTION_INPUT_CITY": "城市"
   },
   "search": {
     "title": "中文標題"

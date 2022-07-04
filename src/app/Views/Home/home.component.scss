@@ -1,155 +1,38 @@
 .banner-section {
-  // background: url('../../../assets/images/banner1.png') no-repeat center;
+  background-image: url('../../../assets/images/bannerImage.png');
   background-size: cover;
-  height: calc(100vh - 96px);
-}
-.scenic-intro {
-  max-width: 560px;
-  flex-shrink: 0;
-  margin-left: 190px;
-}
-.scenic-pic {
-  border-radius: 5px;
-  height: 350px;
-  width: 251px;
-}
-.scenic-second-block {
-  margin-right: 15px;
-  display: flex;
-  justify-content: flex-end;
-  overflow: hidden;
-
-  .scenic-pic {
-    vertical-align: middle;
-    transition: transform .5s;
-  }
-}
-.scenic-second-block:hover {
-  cursor: pointer;
-}
-.scenic-second-block .scenic-pic:hover {
-  transform: scale(1.5);
-}
-// --- 設計稿看起來不需要 --- //
-// .scenic-intro-option {
-//   color: #737373;
-//   position: relative;
-// }
-// .scenic-intro-option:hover.scenic-intro-option span {
-//   color: #769763;
-// }
-// .scenic-intro-option::before {
-//   content: '';
-//   width: 10px;
-//   height: 10px;
-//   border-radius: 50%;
-//   background-color: #F1D675;
-//   position: absolute;
-//   left: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-// --- 設計稿看起來不需要 --- //
-
-@media(max-width: 1025px) {
-  .scenic-intro {
-    max-width: 381px;
-    margin-left: 20px;
-    h2 {
-      font-size: 42px;
-    }
-  }
-  .scenic-pic {
-    width: 208px;
-  }
-}
-@media(max-width: 769px) {
-  .banner-section {
-    height: calc(100vh - 60px);
-  }
-  // .scenic-second-block {
-  //   justify-content: center;
-  // }
-}
-@media(max-width: 641px) {
-  .scenic-intro {
-    max-width: none;
-    .scenic-intro-more {
-      margin-bottom: 10px;
-    }
-  }
-}
-@media(max-width: 391px) {
-  .scenic-pic {
-    height: 170px;
-    width: 118px;
-  }
-  .scenic-intro {
-    margin-left: 0;
-    padding: 0 20px;
-    h2 {
-      font-size: 28px;
-    }
-    .scenic-intro-more {
-      display: none;
-    }
-  }
-}
-.writing-mode-vl {
-  writing-mode: vertical-lr;
-}
-.explore-more:hover {
-  cursor: pointer;
-}
-.explore-more+img {
-  transition: transform 0.5s;
-}
-.explore-more:hover+img {
-  transform: translateX(10px);
-}
-.subscribe-input {
-  background-color: transparent;
-  border: #fff;
-  height: 70px;
-}
-.subscribe-form {
-  border: 1px solid #fff;
-  opacity: 0.5;
-
-  input {
-    background-color: transparent;
-    color: #fff;
-  }
-  input::placeholder {
-    color: #fff;
-  }
-  input:focus {
-    outline: none;
-  }
-}
-::ng-deep .custom-pagination {
+  background-position: center;
+  height: 600px;
+  position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 10px;
-  margin-top: -20px;
-  position: relative;
-  z-index: 2;
-  .swiper-pagination-bullet {
-    width: 20px;
-    height: 5px;
-    display: inline-block;
-    background: #fff;
-    opacity: 0.2;
-    margin: 0 10px;
-    cursor: pointer;
-    border-radius: 1rem;
-  }
-  .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    opacity: 1;
-    background: #fff;
+  align-items: center;
+  .form {
+    max-width: 625px;
+    flex-grow: 1;
+    .search-input {
+      display: flex;
+    }
+    input[type=text] {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    input[type=text]:focus {
+      outline: none;
+    }
+    button[type=button] {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .search-icon {
+      width: 17px;
+      height: 17px;
+    }
   }
 }
-::ng-deep .swiper-slide-fix-width {
-  // width: unset !important;
-  width: auto !important;
+.dropdownList {
+  li a {
+    border-bottom: 1px solid #F4F4F4;
+    text-align: center;
+  }
 }

@@ -1,0 +1,23 @@
+<header class="absolute w-full header-section py-5 px-9">
+  <div class="flex items-center">
+    <button
+      class="md:!hidden order-2 !ml-auto text-white"
+      mat-icon-button aria-label="Example icon-button with menu icon"
+      (click)="onToggle"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="text-white">TAIWAN 台灣旅遊</h1>
+    <span class="grow hidden md:flex justify-end">
+      <a href="#">
+        <p class="header-option text-white">{{'HOME.HEADER_ATTRACTION' | translate }}</p>
+      </a>
+      <a href="#" class="mx-[56px]" routerLink="/search">
+        <p class="header-option text-white">{{'HOME.HEADER_ACCOMMODATION' | translate }}</p>
+      </a>
+      <a href="#">
+        <p class="header-option text-white">{{'HOME.HEADER_DELICACY' | translate }}</p>
+      </a>
+    </span>
+  </div>
+</header>

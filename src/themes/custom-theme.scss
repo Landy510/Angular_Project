@@ -1,16 +1,16 @@
 @use '@angular/material' as mat;
 
 $randy-palette: (
- 50: #f1f7ed,
- 100: #ddebd3,
- 200: #c7ddb8,
- 300: #b3cf9e,
- 400: #a4c58a,
- 500: #95bb78,
- 600: #88ab6e,
- 700: #769763,
- 800: #668359,
- 900: #4d5f48,
+ 50: #fcebe6,
+ 100: #fed1ba,
+ 200: #feb48d,
+ 300: #fd985e,
+ 400: #fc8337,
+ 500: #fb7100,
+ 600: #f06a00,
+ 700: #e26300,
+ 800: #d55b00,
+ 900: #bd4e00,
  contrast: (
    50: rgba(black, 0.87),
    100: rgba(black, 0.87),
@@ -26,7 +26,7 @@ $randy-palette: (
 );
 
 @include mat.core();
-$my-primary: mat.define-palette($randy-palette, 700);
+$my-primary: mat.define-palette($randy-palette, 300);
 $my-accent: mat.define-palette(mat.$indigo-palette);
 // The "warn" palette is optional and defaults to red if not specified.
 $my-warn: mat.define-palette(mat.$red-palette);

@@ -1,28 +1,9 @@
 <div class="flex flex-col h-full">
-  <header>
-    <div class="max-w-screen-lg mx-auto flex items-center">
-      <button class="md:!hidden" mat-icon-button aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
-        <mat-icon>{{ sidenav.opened ? 'close' : 'menu' }}</mat-icon>
-      </button>
-      <img src="../assets/images/logo.svg" alt="logo" class="mx-auto md:mx-0 logo-picture cursor-pointer" routerLink="/">
-      <span class="grow hidden md:flex justify-center">
-        <a href="#" class="">
-          <p class="header-option text-center">{{'home.header_attraction' | translate }}</p>
-        </a>
-        <a href="#" class="mx-[56px]" routerLink="/search">
-          <p class="header-option text-center">{{'home.header_delicacy' | translate }}</p>
-        </a>
-        <a href="#">
-          <p class="header-option text-center">{{'home.header_activity' | translate }}</p>
-        </a>
-      </span>
-      <span class="ml-auto hidden md:flex align-center">
-        <img src="../assets/images/favoriate_icon.png" alt="info" class="mr-4 cursor-pointer">
-        <img src="../assets/images/info.png" alt="info" class="mr-4 cursor-pointer">
-      </span>
-    </div>
-  </header>
-
+  <app-header
+    class="fixed top-0 z-[2] w-full"
+    (toggle)="sidenav.toggle()"
+    [sideMenuOpen]="sidenav.opened">
+  </app-header>
   <mat-sidenav-container class="grow shrink-0">
     <mat-sidenav #sidenav mode="push">
       <mat-nav-list>
@@ -34,7 +15,7 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 
-  <footer>
+  <footer class="bg-primary">
     <div class="flex justify-between items-center flex-col sm:flex-row max-w-screen-lg mx-auto py-4 px-2 lg:px-0">
       <p class="text-grey text-base hidden lg:block">Follow us</p>
       <p class="hidden sm:flex items-center">

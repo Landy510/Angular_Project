@@ -1,8 +1,11 @@
 {
-  "home": {
-    "header_attraction": "アトラクション",
-    "header_delicacy": "美味",
-    "header_activity": "活动"
+  "HOME": {
+    "HEADER_ATTRACTION": "アトラクション",
+    "HEADER_ACCOMMODATION": "泊まる",
+    "HEADER_DELICACY": "美味",
+    "BANNER_SECTION_INPUT_KEYWORD": "keyword",
+    "BANNER_SECTION_INPUT_TYPE": "type",
+    "BANNER_SECTION_INPUT_CITY": "city"
   },
   "search": {
     "title": "日本語タイトル"

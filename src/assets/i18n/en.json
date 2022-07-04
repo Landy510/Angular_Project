@@ -1,8 +1,11 @@
 {
-  "home": {
-    "header_attraction": "ATTRACTION",
-    "header_delicacy": "DELICACY",
-    "header_activity": "ACTIVITY"
+  "HOME": {
+    "HEADER_ATTRACTION": "ATTRACTION",
+    "HEADER_ACCOMMODATION": "ACCOMMODATION",
+    "HEADER_DELICACY": "DELICACY",
+    "BANNER_SECTION_INPUT_KEYWORD": "keyword",
+    "BANNER_SECTION_INPUT_TYPE": "type",
+    "BANNER_SECTION_INPUT_CITY": "city"
   },
   "search": {
     "title": "English Title"

@@ -1,27 +1,27 @@
 .logo-picture {
   height: 60px;
 }
-.header-option {
-  color: #737373;
-  position: relative;
-}
-.header-option:before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: transparent;
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.header-option:hover{
-  color: #F1D675;
-}
-.header-option:hover.header-option:before {
-  background-color: #F1D675;
-}
+// .header-option {
+//   color: #737373;
+//   position: relative;
+// }
+// .header-option:before {
+//   content: '';
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   background-color: transparent;
+//   position: absolute;
+//   top: -20px;
+//   left: 50%;
+//   transform: translateX(-50%);
+// }
+// .header-option:hover{
+//   color: #F1D675;
+// }
+// .header-option:hover.header-option:before {
+//   background-color: #F1D675;
+// }
 @media(min-width: 769px) {
   .logo-picture {
     height: 96px;

@@ -1,64 +1,37 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { map } from 'rxjs';
-import SwiperCore, { Pagination, SwiperOptions, Autoplay } from 'swiper';
-import { SwiperComponent } from 'swiper/angular';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { HomeService } from '@api/home/home.service';
-import { ScenicFilter } from './types';
-
-SwiperCore.use([Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('swiper') swiper!: SwiperComponent;
+  @ViewChild(ElementRef) dropDownCompo!: ElementRef;
 
-  config: SwiperOptions = {
-    slidesPerView: 1,
-    pagination: {
-      clickable: true,
-      el: '.custom-pagination'
-    }
-  };
-
-  bannerImages: Array<string> =  [
-    'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2815&w=1280&h=960',
-    'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2839&w=1280&h=960',
-    'https://www.matsu-nsa.gov.tw/FileArtPic.ashx?id=2887&w=1280&h=960',
-  ];
-
-  secondBlockImageFirstRow: Array<ScenicFilter> = [];
-
-  secondBlockImageSecondRow: Array<ScenicFilter> = [];
-
-  constructor(private homeService: HomeService) { }
+  constructor(
+    private homeService: HomeService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIconInNamespace(
+      'custom-svg',
+      'search',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/searchIcon.svg')
+    );
+  }
 
   ngOnInit(): void {
     this.homeService.getAllScenicSpots()
-      .pipe(
-        map(res => {
-          const temArray: Array<ScenicFilter> = [];
-          res.forEach(item => {
-            if (temArray.length <= 6 && item.Picture.PictureUrl1) {
-              temArray.push(
-                { title: item.ScenicSpotName, picUrl: item.Picture.PictureUrl1 }
-              );
-            }
-          });
-          return temArray;
-        })
-      )
       .subscribe({
-        next: res => {
-          res.forEach((item, index) => {
-            if (index <= 2) this.secondBlockImageFirstRow.push(item);
-            else this.secondBlockImageSecondRow.push(item);
-          });
-        },
+        next: res => console.log(res),
         error: err => console.log('scenic error', err)
       });
+  }
+
+  toggle(el: HTMLDivElement): void {
+    el.classList.contains('hidden') ?  el.classList.remove('hidden') : el.classList.add('hidden');
   }
 }
