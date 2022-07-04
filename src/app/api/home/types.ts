@@ -23,3 +23,8 @@ export interface ScenicSpot {
   SrcUpdateTime: string,
   UpdateTime: string
 }
+
+export interface Scenic {
+  picUrl: string,
+  title: string
+}

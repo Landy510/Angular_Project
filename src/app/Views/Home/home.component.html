@@ -1,4 +1,4 @@
-<div class="banner-section">
+<div class="banner-section mb-5">
   <form class="form px-5 md:px-0">
     <div class="search-input mb-5">
       <input
@@ -31,7 +31,7 @@
             <li class="px-3" *ngFor="let item of typeList">
               <a
                 href="#"
-                class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-center"
+                class="block py-2 hover:text-primary text-center"
                 (click)="setSearchContent(dropdown1, item, 'type')"
               >{{ item }}
               </a>
@@ -59,7 +59,7 @@
             <li class="px-3" *ngFor="let item of cityList">
               <a
                 href="#"
-                class="block py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-center"
+                class="block py-2 hover:bg-gray-100 hover:text-primary text-center"
                 (click)="setSearchContent(dropdown2, item, 'city')"
               >{{ item }}
               </a>
@@ -69,4 +69,16 @@
       </div>
     </div>
   </form>
+</div>
+<div class="travel-scenic-section">
+  <h2 class="font-bold text-3xl text-center mb-5">旅遊景點</h2>
+  <div class="flex justify-around flex-wrap">
+    <span
+      *ngFor="let item of scenicList"
+      class="scenic-block bg-center bg-cover mb-5"
+      [ngStyle]="{'background-image': 'url(' + item.picUrl + ')'}"
+    >
+      <h3>{{ item.title }}</h3>
+    </span>
+  </div>
 </div>

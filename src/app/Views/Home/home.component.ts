@@ -2,7 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import { tap } from 'rxjs/operators';
+
 import { HomeService } from '@api/home/home.service';
+import { Scenic } from '@api/home/types';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -43,6 +46,8 @@ export class HomeComponent implements OnInit {
     '連江縣',
   ];
 
+  scenicList: Scenic[] = [];
+
   typeOption: string = '';
 
   cityOption: string = '';
@@ -60,9 +65,21 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let index = 0;
     this.homeService.getAllScenicSpots()
+      .pipe(tap((res) => console.log(res)))
       .subscribe({
-        next: res => console.log(res),
+        next: res => {
+          for (let i = 0; i < res.length && index < 5 ; i++) {
+            if (res[i].Picture.PictureUrl1 && index < 5) {
+              this.scenicList.push({
+                title: res[i].ScenicSpotName,
+                picUrl: res[i].Picture.PictureUrl1
+              });
+              index++;
+            }
+          }
+        },
         error: err => console.log('scenic error', err)
       });
   }
