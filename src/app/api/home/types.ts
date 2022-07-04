@@ -51,3 +51,26 @@ export interface ActivityList {
   SrcUpdateTime: string,
   UpdateTime: string
 }
+
+export interface DelicacyList {
+  RestaurantID: string,
+  RestaurantName: string,
+  Description: string,
+  Address: string,
+  ZipCode: string,
+  Phone: string,
+  OpenTime: string,
+  WebsiteUrl: string,
+  Picture: {
+    PictureUrl1: string,
+    PictureDescription1: string
+  },
+  Position: {
+    PositionLon: number,
+    PositionLat: number,
+    GeoHash: string
+  },
+  Class: string,
+  SrcUpdateTime: string,
+  UpdateTime: string
+}

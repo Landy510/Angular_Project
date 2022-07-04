@@ -3,7 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { HomeService } from '@api/home/home.service';
-import { ScenicSpot, ActivityList } from '@api/home/types';
+import { ScenicSpot, ActivityList, DelicacyList } from '@api/home/types';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
   scenicList: ScenicSpot[] = [];
 
   activityList: ActivityList[] = [];
+
+  delicacyList: DelicacyList[] = [];
 
   typeOption: string = '';
 
@@ -96,6 +98,17 @@ export class HomeComponent implements OnInit {
           });
         }
       });
+    this.homeService.getAllDelicacyList()
+      .subscribe({
+        next: res => {
+          let count = 0;
+          this.delicacyList = res.filter(item => {
+            if (item.Picture.hasOwnProperty('PictureUrl1')) count++; // 判斷來源的資料是否有提供圖片連結
+            return item.Picture.hasOwnProperty('PictureUrl1') && count <= 3;
+          });
+        }
+      });
+
   }
 
   toggle(el: HTMLDivElement): void {

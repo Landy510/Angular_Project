@@ -104,11 +104,17 @@
   max-width: 385px;
   margin: 15px;
 
+  .activity-block-image-container {
+    height: 168px;
+    overflow: hidden;
+  }
+
   .activity-block-image {
     width: 385px;
     height: 168px;
     background-size: cover;
     background-position: center;
+    transition: transform .5s;
   }
 
   .activity-block-intro {
@@ -120,5 +126,11 @@
     p {
       color: rgba(0, 0, 0, 0.5);
     }
+  }
+}
+.activity-block:hover {
+  cursor: pointer;
+  .activity-block-image {
+    transform: scale(1.2);
   }
 }
