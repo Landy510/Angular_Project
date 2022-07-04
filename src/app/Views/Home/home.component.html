@@ -85,27 +85,34 @@
 <div style="height: 20px;" class="bg-grey"></div>
 <div class="reading-more-section mt-5 pb-[20px]">
   <div class="activity-section">
-    <div class="flex justify-center">
-      <h2 class="font-bold text-3xl text-center mb-5">觀光活動</h2>
-      <button class="bg-primary ml-auto" type="button">查看更多</button>
+    <div class="mb-5 relative activity-title">
+      <h2 class="font-bold text-3xl text-center flex-grow">觀光活動</h2>
+      <button class="bg-primary text-white hidden md:inline see-more-btn" type="button">查看更多</button>
     </div>
 
     <div class="flex justify-around flex-wrap">
       <div
         *ngFor="let item of activityList"
-        class="activity-block mb-5"
+        class="activity-block flex flex-col"
       >
         <div
           class="activity-block-image"
           [ngStyle]="{'background-image': 'url(' + item.Picture.PictureUrl1 + ')'}"
         >
         </div>
-        <div class="activity-block-intro">
+        <div class="activity-block-intro flex flex-col justify-around flex-grow">
           <h3>{{ item.ActivityName }} </h3>
-          <p> {{ item.Address }} </p>
-          <p> {{ item.StartTime | date: 'yyyy/M/d' }} - {{ item.EndTime | date: 'yyyy/M/d' }} </p>
+          <p class="flex items-center">
+            <mat-icon class="mr-3" svgIcon="custom-svg:location"></mat-icon>
+            <span>{{ item.Address }}</span>
+          </p>
+          <p class="flex items-center">
+            <mat-icon class="mr-3" svgIcon="custom-svg:clock"></mat-icon>
+            <span>{{ item.StartTime | date: 'yyyy/M/d' }} - {{ item.EndTime | date: 'yyyy/M/d' }} </span>
+          </p>
         </div>
       </div>
     </div>
+    <button class="bg-primary text-white sm:hidden see-more-btn block mx-auto" type="button">查看更多</button>
   </div>
 </div>

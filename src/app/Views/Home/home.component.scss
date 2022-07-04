@@ -79,10 +79,30 @@
   }
 }
 
+.activity-section {
+  .see-more-btn {
+    padding: 10px 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+.activity-title {
+  position: relative;
+  button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 .activity-block {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 5px 5px 5px 5px rgba(229, 229, 229, 1);
+  max-width: 385px;
+  margin: 15px;
 
   .activity-block-image {
     width: 385px;

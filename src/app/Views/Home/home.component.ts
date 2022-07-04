@@ -62,6 +62,16 @@ export class HomeComponent implements OnInit {
       'search',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/searchIcon.svg')
     );
+    this.matIconRegistry.addSvgIconInNamespace(
+      'custom-svg',
+      'location',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/locationIcon.svg')
+    );
+    this.matIconRegistry.addSvgIconInNamespace(
+      'custom-svg',
+      'clock',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/clockIcon.svg')
+    );
   }
 
   ngOnInit(): void {
