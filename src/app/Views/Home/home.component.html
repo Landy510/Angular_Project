@@ -82,12 +82,12 @@
     </span>
   </div>
 </div>
-<div style="height: 20px;" class="bg-grey"></div>
+<div class="bg-grey spacer hidden md:block"></div>
 <div class="reading-more-section mt-5 pb-[20px]">
   <div class="activity-section mb-8">
     <div class="mb-5 relative activity-title">
       <h2 class="font-bold text-3xl text-center flex-grow">觀光活動</h2>
-      <button class="bg-primary text-white hidden md:inline see-more-btn" type="button">查看更多</button>
+      <button class="bg-primary text-white hidden md:inline see-more-btn mt-5" type="button">查看更多</button>
     </div>
 
     <div class="flex justify-around flex-wrap">
@@ -115,9 +115,10 @@
         </div>
       </div>
     </div>
-    <button class="bg-primary text-white sm:hidden see-more-btn block mx-auto" type="button">查看更多</button>
+    <button class="bg-primary text-white sm:hidden see-more-btn block mx-auto mt-5" type="button">查看更多</button>
   </div>
-  <div class="activity-section">
+  <div class="bg-grey spacer block md:hiddn"></div>
+  <div class="activity-section mb-8">
     <div class="mb-5 relative activity-title">
       <h2 class="font-bold text-3xl text-center flex-grow">美食品嚐</h2>
       <button class="bg-primary text-white hidden md:inline see-more-btn" type="button">查看更多</button>
@@ -144,6 +145,40 @@
           <p class="flex items-center">
             <mat-icon class="mr-3" svgIcon="custom-svg:clock"></mat-icon>
             <span>{{ item.OpenTime }} </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <button class="bg-primary text-white sm:hidden see-more-btn block mx-auto" type="button">查看更多</button>
+  </div>
+  <div class="bg-grey spacer block md:hidden"></div>
+  <div class="activity-section">
+    <div class="mb-5 relative activity-title">
+      <h2 class="font-bold text-3xl text-center flex-grow">住宿推薦</h2>
+      <button class="bg-primary text-white hidden md:inline see-more-btn" type="button">查看更多</button>
+    </div>
+
+    <div class="flex justify-around flex-wrap">
+      <div
+        *ngFor="let item of accommodationList"
+        class="activity-block flex flex-col"
+      >
+        <div class="activity-block-image-container">
+          <div
+            class="activity-block-image"
+            [ngStyle]="{'background-image': 'url(' + item.Picture.PictureUrl1 + ')'}"
+          >
+          </div>
+        </div>
+        <div class="activity-block-intro flex flex-col justify-around flex-grow">
+          <h3>{{ item.HotelName }} </h3>
+          <p class="flex items-center mb-2">
+            <mat-icon class="mr-3" svgIcon="custom-svg:location"></mat-icon>
+            <span>{{ item.Address }}</span>
+          </p>
+          <p class="flex items-center">
+            <mat-icon class="mr-3" svgIcon="custom-svg:phone"></mat-icon>
+            <span>{{ item.Phone }} </span>
           </p>
         </div>
       </div>

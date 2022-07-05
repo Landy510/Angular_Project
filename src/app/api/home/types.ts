@@ -74,3 +74,23 @@ export interface DelicacyList {
   SrcUpdateTime: string,
   UpdateTime: string
 }
+
+export interface AccommodationList {
+  HotelID: string,
+  HotelName: string,
+  Description: string,
+  Address: string,
+  ZipCode: string,
+  Phone: string,
+  Picture: any, // 它的屬性內容是動態的，不確定數量的
+  Position: {
+    PositionLon: number,
+    PositionLat: number,
+    GeoHash: string
+  },
+  Class: string,
+  ServiceInfo: string,
+  ParkingInfo: string,
+  SrcUpdateTime: string,
+  UpdateTime: string
+}
