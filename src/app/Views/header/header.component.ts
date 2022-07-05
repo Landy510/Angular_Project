@@ -15,7 +15,12 @@ import {
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('headerRef')headerRef!: ElementRef;
 
-  scrollEvt!: any;
+  // scrollEvt!: any;
+
+  scrollEvt(): void {
+    console.log(window.pageYOffset);
+    console.log(this); // 會是 window?
+  }
 
   constructor() {}
 
@@ -26,11 +31,13 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.scrollEvt = () => {
-      window.pageYOffset > 520 ? // 當滑超過 bannerImage 的高度時，為 header 加入背景圖
-        this.headerRef.nativeElement.classList.add('over')
-        : this.headerRef.nativeElement.classList.remove('over');
-    };
+    // this.scrollEvt = () => {
+    //   window.pageYOffset > 520 ? // 當滑超過 bannerImage 的高度時，為 header 加入背景圖
+    //     this.headerRef.nativeElement.classList.add('over')
+    //     : this.headerRef.nativeElement.classList.remove('over');
+    // };
+    // window.addEventListener('scroll', this.scrollEvt, { passive: true });
+
     window.addEventListener('scroll', this.scrollEvt, { passive: true });
   }
 
