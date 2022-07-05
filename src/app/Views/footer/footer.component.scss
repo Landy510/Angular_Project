@@ -1,0 +1,24 @@
+.footer-icon {
+  color: #fff;
+  opacity: 0.5;
+}
+.footer-icon:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.footer-language:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.mobile-lang-sections {
+  position: relative;
+}
+.mobile-lang-sections:before {
+  content: '';
+  height: 100%;
+  width: 2px;
+  background-color: #737373;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

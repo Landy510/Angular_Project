@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TokenAuthHttpInterceptor } from '@api/interceptor/token-auth-http-interceptor';
 import { HeaderComponent } from './Views/header/header.component';
+import { FooterComponent } from './Views/footer/footer.component';
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -24,6 +25,7 @@ export function httpTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
