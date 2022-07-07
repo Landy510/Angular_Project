@@ -11,11 +11,12 @@ import { MatListModule } from '@angular/material/list';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HomeModule } from '@views/home/home.module';
+import { HeaderModule } from '@views/header/header.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TokenAuthHttpInterceptor } from '@api/interceptor/token-auth-http-interceptor';
-import { HeaderComponent } from './Views/header/header.component';
+// import { HeaderComponent } from './Views/header/header.component';
 import { FooterComponent } from './Views/footer/footer.component';
 
 export function httpTranslateLoader(http: HttpClient) {
@@ -24,7 +25,6 @@ export function httpTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
   ],
   imports: [
@@ -38,6 +38,7 @@ export function httpTranslateLoader(http: HttpClient) {
     MatToolbarModule,
     MatListModule,
     HomeModule,
+    HeaderModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

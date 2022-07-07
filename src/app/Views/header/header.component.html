@@ -4,7 +4,7 @@
       <button
         class="md:!hidden order-2 !ml-auto text-white"
         mat-icon-button aria-label="Example icon-button with menu icon"
-        (click)="onToggle(navbarDropDownRef)"
+        (click)="matExpansionCompo.toggle()"
       >
         <mat-icon>menu</mat-icon>
       </button>
@@ -24,17 +24,19 @@
     </span>
     <!-- END -->
     <!-- mobile navbar dropdown | START -->
-    <span class="hidden md:hidden grow flex flex-col justify-center" #navbarDropDownRef>
-      <a href="#" class="py-5 text-center">
-        <p class="header-option text-white text-center">{{'HOME.HEADER_ATTRACTION' | translate }}</p>
-      </a>
-      <a href="#" class="py-5 text-center" routerLink="/search">
-        <p class="header-option text-white text-center">{{'HOME.HEADER_ACCOMMODATION' | translate }}</p>
-      </a>
-      <a href="#" class="py-5 text-center">
-        <p class="header-option text-white text-center">{{'HOME.HEADER_DELICACY' | translate }}</p>
-      </a>
-    </span>
+    <mat-expansion-panel class="md:!hidden mat-expansion-panel-custom">
+      <ng-template matExpansionPanelContent>
+        <a href="#" class="text-center">
+          <p class="text-white text-center py-5">{{'HOME.HEADER_ATTRACTION' | translate }}</p>
+        </a>
+        <a href="#" class="text-center" routerLink="/search">
+          <p class="text-white text-center py-5">{{'HOME.HEADER_ACCOMMODATION' | translate }}</p>
+        </a>
+        <a href="#" class="text-center">
+          <p class="text-white text-center py-5">{{'HOME.HEADER_DELICACY' | translate }}</p>
+        </a>
+      </ng-template>
+    </mat-expansion-panel>
     <!-- END -->
   </div>
 </header>

@@ -33,3 +33,12 @@
 .header-option:hover.header-option:before {
   background-color: #FD975E;
 }
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.mat-expansion-panel-custom {
+  box-shadow: none !important;
+  background-color: unset !important;
+}
