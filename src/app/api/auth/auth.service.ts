@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import Cookies from 'js-cookie';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { token } from './types';
-
+import { ApiService } from '@api/api.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   token = '';
 
-  client_id = 'stealing610-0ee4792d-e572-423b';
+  client_id = '123';
 
   client_secret = '251bfba9-f771-413b-8d22-cb9853f687ab';
 
@@ -20,7 +20,10 @@ export class AuthService {
 
   token$ = new BehaviorSubject<string>('');
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private api: ApiService
+  ) { }
 
   setCookie(token: string) {
     Cookies.set('AUTH_TOKEN', token, { path: '/' });
@@ -33,14 +36,9 @@ export class AuthService {
     body.set('client_id', this.client_id);
     body.set('client_secret', this.client_secret);
 
-    const option = {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    };
-
-    return this.http.post<token> (  // 這邊的 url 保持完整的路徑，因為它的 baseUrl 跟別人不太一樣
+    return this.api.postToGetToken(
       'https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token',
-      body,
-      option
+      body
     );
   }
 
