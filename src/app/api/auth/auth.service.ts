@@ -12,7 +12,7 @@ import { ApiService } from '@api/api.service';
 export class AuthService {
   token = '';
 
-  client_id = '123';
+  client_id = 'stealing610-0ee4792d-e572-423b';
 
   client_secret = '251bfba9-f771-413b-8d22-cb9853f687ab';
 
