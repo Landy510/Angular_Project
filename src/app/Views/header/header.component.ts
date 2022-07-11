@@ -17,8 +17,6 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild(MatExpansionPanel)matExpansionCompo!: MatExpansionPanel;
 
-  scrollEvt!: any;
-
   bannerImageHeight = 520; // 600 - 80
 
   constructor() {}
@@ -26,16 +24,17 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.scrollEvt = () => {
-      window.pageYOffset > this.bannerImageHeight ? // 當滑超過 bannerImage 的高度時，為 header 加入背景圖
-        this.headerRef.nativeElement.classList.add('over')
-        : this.headerRef.nativeElement.classList.remove('over');
-    };
     window.addEventListener('scroll', this.scrollEvt, { passive: true });
   }
 
   ngOnDestroy(): void {
     window.removeEventListener('scroll', this.scrollEvt);
   }
+
+  scrollEvt = (): void => {
+    window.pageYOffset > this.bannerImageHeight ?
+      this.headerRef.nativeElement.classList.add('over')
+      : this.headerRef.nativeElement.classList.remove('over');
+  };
 
 }
