@@ -27,6 +27,7 @@
       "@api/*": ["src/app/api/*"],
       "@assets/*": ["src/assets/*"],
       "@views/*": ["src/app/Views/*"],
+      "@shared/*": ["src/app/shared/*"],
       "@/*": ["src/*"],
     }
   },

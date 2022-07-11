@@ -1,0 +1,12 @@
+<h2 mat-dialog-title class="bg-primary"> {{ (data?.title || 'ERROR') }}</h2>
+<div mat-dialog-content>
+  <p class="message-content"> {{ (data?.message || '') }}</p>
+</div>
+<div mat-dialog-action>
+  <button class="" (click)="onCancel()" *ngIf="data.negativeButtonText">
+    {{ data.negativeButtonText }}
+  </button>
+  <button class="" (click)="onOk()" *ngIf="data.positiveButtonText">
+    {{ data.positiveButtonText }}
+  </button>
+</div>

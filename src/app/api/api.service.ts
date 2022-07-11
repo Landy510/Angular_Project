@@ -5,6 +5,10 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 import Cookies from 'js-cookie';
 
+import {
+  MSG_DLG_BTN_OK,
+  MessageDialogDataBuilder } from '../shared/components/widg-dialog/message-dialog/message-dialog.component';
+import { WidgDialogService } from '@shared/components/widg-dialog/widg-dialog.service';
 import { ApiError } from './api-error';
 @Injectable({
   providedIn: 'root'
@@ -15,19 +19,25 @@ export class ApiService {
 
   apiTimeoutInMs = 10000;
 
+  isErrorMessageShowing = false;
+
   protected contentHeader = new HttpHeaders({ 'Authorization': this.getToken });
 
   get getToken(): string {
     return Cookies.get('AUTH_TOKEN') || '';
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    protected dialogService: WidgDialogService
+  ) { }
 
   public get<T>(url: string): Observable<T> {
     return this.http.get<T>(this.baseUrl + url)
       .pipe(
         this.handleApiError(this.apiTimeoutInMs)
-      );
+      )
+    ;
   }
 
   public postToGetToken<T>(getTokenUrl: string, body: URLSearchParams): Observable<T> {
@@ -41,7 +51,34 @@ export class ApiService {
   public handleApiError = (apiTimeoutInMs = this.apiTimeoutInMs) => {
     return <T>(source: Observable<T>): Observable<T> => {
       return source.pipe(
-        this.catchApiErrorAndThrow(apiTimeoutInMs)
+        this.catchApiErrorAndThrow(apiTimeoutInMs),
+        catchError((error: ApiError) => {
+          if (!this.isErrorMessageShowing && error.showAlert) {
+            this.isErrorMessageShowing = true;
+            const dataBuilder = new MessageDialogDataBuilder();
+            dataBuilder.setPositiveButton('ok');
+            let action: () => void;
+            switch (error.code) {
+              case ApiError.INVALID_TOKEN:
+                dataBuilder.setMessage(error.message);
+                if (error.title) dataBuilder.setTitle(error.title);
+                break;
+              default:
+                dataBuilder.setMessage(error.message);
+                break;
+            }
+            const dialogRef = this.dialogService.openMsgDialog({
+              data: dataBuilder.create()
+            });
+            dialogRef.afterClosed().subscribe(result => {
+              if (result === MSG_DLG_BTN_OK && action) {
+                action();
+              }
+              this.isErrorMessageShowing = false;
+            });
+          }
+          return throwError(error);
+        })
       );
     };
   };
@@ -55,7 +92,7 @@ export class ApiService {
           if (err.error == null || !err) {
             error = ApiError.RequestFail();
           } else if (err.status !== null && err.status === 400) {
-            error = ApiError.InvalidToken('Invalid User', '提醒您');
+            error = ApiError.InvalidToken('Invalid Token', '提醒您');
           }
           return throwError(error);
         })

@@ -18,6 +18,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { TokenAuthHttpInterceptor } from '@api/interceptor/token-auth-http-interceptor';
 // import { HeaderComponent } from './Views/header/header.component';
 import { FooterComponent } from './Views/footer/footer.component';
+// import { MessageDialogComponent } from './shared/components/widg-dialog/message-dialog/message-dialog.component';
+import { WidgDialogModule } from './shared/components/widg-dialog/widg-dialog.module';
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -26,6 +28,7 @@ export function httpTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     FooterComponent,
+    // MessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ export function httpTranslateLoader(http: HttpClient) {
     MatListModule,
     HomeModule,
     HeaderModule,
+    WidgDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
