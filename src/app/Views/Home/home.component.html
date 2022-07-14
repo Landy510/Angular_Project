@@ -1,71 +1,33 @@
 <div class="banner-section mb-5">
   <form class="form px-5 md:px-0">
-    <div class="search-input mb-5">
-      <input
-        id="username"
-        type="text"
-        [placeholder]="'HOME.BANNER_SECTION_INPUT_KEYWORD' | translate"
-        class="w-full pl-[10px] py-[10px]"
-      >
-      <button type="button" class="bg-white flex items-center px-[10px]">
-        <mat-icon class="search-icon" svgIcon="custom-svg:search">search</mat-icon>
-      </button>
+    <div class="flex mb-5">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_KEYWORD' | translate }}</mat-label>
+        <input matInput>
+        <mat-icon matSuffix svgIcon="custom-svg:search"></mat-icon>
+      </mat-form-field>
     </div>
     <div class="flex justify-between flex-col md:flex-row">
       <div class="relative flex-grow mb-5 md:mr-8 md:mb-0">
-        <span class="flex">
-          <input
-            id="username"
-            type="text"
-            [placeholder]="'HOME.BANNER_SECTION_INPUT_TYPE' | translate"
-            class="w-full pl-[10px] bg-white"
-            [disabled]="true"
-            [value]="typeOption"
-          >
-          <button type="button" class="bg-white p-[10px] flex items-center" (click)="toggle(dropdown1)">
-            <mat-icon color="primary">arrow_drop_down</mat-icon>
-          </button>
-        </span>
-        <div class="z-10 bg-white hidden divide-y divide-gray-100 rounded shadow dark:bg-gray-700 absolute w-full mt-1" #dropdown1>
-          <ul class="dropdownList py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-            <li class="px-3" *ngFor="let item of typeList">
-              <a
-                href="#"
-                class="block py-2 hover:text-primary text-center"
-                (click)="setSearchContent(dropdown1, item, 'type')"
-              >{{ item }}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <mat-form-field appearance="fill" color="primary">
+          <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_TYPE' | translate }} </mat-label>
+          <mat-select [(ngModel)]="typeOption" name="type">
+            <mat-option *ngFor="let item of typeList" [value]="item">
+              {{ item }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <div class="relative flex-grow">
-        <span class="flex">
-          <input
-            id="username"
-            type="text"
-            [placeholder]="'HOME.BANNER_SECTION_INPUT_CITY' | translate"
-            class="w-full pl-[10px] bg-white"
-            [disabled]="true"
-            [value]="cityOption"
-          >
-          <button type="button" class="bg-white p-[10px] flex items-center" (click)="toggle(dropdown2)">
-            <mat-icon color="primary">arrow_drop_down</mat-icon>
-          </button>
-        </span>
-        <div class="z-10 bg-white hidden divide-y divide-gray-100 rounded shadow dark:bg-gray-700 absolute w-full mt-1" #dropdown2>
-          <ul class="dropdownList py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-            <li class="px-3" *ngFor="let item of cityList">
-              <a
-                href="#"
-                class="block py-2 hover:bg-gray-100 hover:text-primary text-center"
-                (click)="setSearchContent(dropdown2, item, 'city')"
-              >{{ item }}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <mat-form-field appearance="fill" color="primary">
+          <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_CITY' | translate }} </mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="city">
+            <mat-option *ngFor="let city of cityList" [value]="city">
+              {{ city }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
   </form>

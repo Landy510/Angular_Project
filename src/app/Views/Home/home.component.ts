@@ -12,6 +12,8 @@ import { ScenicSpot, ActivityList, DelicacyList, AccommodationList } from '@api/
 export class HomeComponent implements OnInit {
   @ViewChild(ElementRef) dropDownCompo!: ElementRef;
 
+  selectedValue: string = '';
+
   typeList: string[] = [
     '旅遊景點',
     '觀光活動',
@@ -127,10 +129,6 @@ export class HomeComponent implements OnInit {
         }
       });
 
-  }
-
-  toggle(el: HTMLDivElement): void {
-    el.classList.contains('hidden') ?  el.classList.remove('hidden') : el.classList.add('hidden');
   }
 
   setSearchContent(el: HTMLDivElement, option: string, type: string): void {

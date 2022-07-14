@@ -1,6 +1,23 @@
 .spacer {
   height: 20px;
 }
+mat-form-field.mat-form-field {
+  background-color: #fff;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+:host ::ng-deep.mat-form-field .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+:host ::ng-deep.mat-form-field .mat-form-field-underline {
+  display: none;
+}
+:host ::ng-deep.mat-select-arrow {
+  color: #FD975E;
+}
 
 .banner-section {
   background-image: url('../../../assets/images/bannerImage.png');
@@ -14,31 +31,6 @@
   .form {
     max-width: 625px;
     flex-grow: 1;
-    .search-input {
-      display: flex;
-    }
-    input[type=text] {
-      border-top-left-radius: 8px;
-      border-bottom-left-radius: 8px;
-    }
-    input[type=text]:focus {
-      outline: none;
-    }
-    button[type=button] {
-      border-top-right-radius: 8px;
-      border-bottom-right-radius: 8px;
-    }
-    .search-icon {
-      width: 17px;
-      height: 17px;
-    }
-  }
-}
-.dropdownList {
-  max-height: 200px;
-  overflow-y: auto;
-  li:not(:last-child) a {
-    border-bottom: 1px solid #F4F4F4;
   }
 }
 .travel-scenic-section {
