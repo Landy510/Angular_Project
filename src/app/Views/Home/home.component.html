@@ -23,8 +23,8 @@
         <mat-form-field appearance="fill" color="primary">
           <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_CITY' | translate }} </mat-label>
           <mat-select [(ngModel)]="selectedValue" name="city">
-            <mat-option *ngFor="let city of cityList" [value]="city">
-              {{ city }}
+            <mat-option *ngFor="let city of cityList" [value]="city.City">
+              {{ city.CityName }}
             </mat-option>
           </mat-select>
         </mat-form-field>

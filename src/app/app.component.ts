@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { tap, concatMap } from 'rxjs';
+
 import { AuthService } from '@api/auth/auth.service';
+import { CommonService } from '@api/common/common.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,15 +11,21 @@ import { AuthService } from '@api/auth/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private commonService: CommonService
+  ) {}
 
   ngOnInit(): void {
     this.authService.postToGetToken()
+      .pipe(
+        tap((res) => this.authService.successSetCookie(`${res.token_type} ${res.access_token}`)),
+        concatMap(() => this.commonService.getAllCities())
+      )
       .subscribe({
         next: (res) => {
-          this.authService.successSetCookie(`${res.token_type} ${res.access_token}`);
-        },
-        error: (err) => console.log('token acquire fail', err)
+          this.commonService.cityList$.next(res);
+        }
       });
   }
 }
