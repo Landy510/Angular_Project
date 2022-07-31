@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './Views/home/home.component';
+import { HomeComponent } from '@views/home/home.component';
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
     // loadChildren: () => import('@views/Home/home.module').then(module => module.HomeModule)
+  },
+  {
+    path: 'generic',
+    children: [
+      {
+        path: ':category/:city',
+        loadChildren: () => import('@views/generic/generic.module').then(module => module.GenericModule)
+      },
+    ]
   },
 ];
 

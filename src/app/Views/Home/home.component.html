@@ -1,9 +1,12 @@
 <div class="banner-section mb-5">
-  <form class="form px-5 md:px-0">
+  <form
+    class="form px-5 md:px-0"
+    [formGroup]="searchForm"
+  >
     <div class="flex mb-5">
       <mat-form-field appearance="fill">
         <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_KEYWORD' | translate }}</mat-label>
-        <input matInput>
+        <input matInput formControlName="search">
         <mat-icon matSuffix svgIcon="custom-svg:search"></mat-icon>
       </mat-form-field>
     </div>
@@ -11,9 +14,14 @@
       <div class="relative flex-grow mb-5 md:mr-8 md:mb-0">
         <mat-form-field appearance="fill" color="primary">
           <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_TYPE' | translate }} </mat-label>
-          <mat-select [(ngModel)]="typeOption" name="type">
+          <!-- <mat-select [(ngModel)]="typeOption" name="type">
             <mat-option *ngFor="let item of typeList" [value]="item">
               {{ item }}
+            </mat-option>
+          </mat-select> -->
+          <mat-select name="type" formControlName="type">
+            <mat-option *ngFor="let item of typeList" [value]="item.value">
+              {{ item.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -22,7 +30,12 @@
       <div class="relative flex-grow">
         <mat-form-field appearance="fill" color="primary">
           <mat-label>{{ 'HOME.BANNER_SECTION_INPUT_CITY' | translate }} </mat-label>
-          <mat-select [(ngModel)]="selectedValue" name="city">
+          <!-- <mat-select [(ngModel)]="selectedValue" name="city">
+            <mat-option *ngFor="let city of cityList" [value]="city.City">
+              {{ city.CityName }}
+            </mat-option>
+          </mat-select> -->
+          <mat-select name="city" formControlName="city">
             <mat-option *ngFor="let city of cityList" [value]="city.City">
               {{ city.CityName }}
             </mat-option>
@@ -32,6 +45,7 @@
     </div>
   </form>
 </div>
+
 <div class="travel-scenic-section">
   <h2 class="font-bold text-3xl text-center mb-5">旅遊景點</h2>
   <div class="flex justify-around flex-wrap">
