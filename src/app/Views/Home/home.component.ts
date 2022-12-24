@@ -1,9 +1,17 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FormGroup, FormControl  } from '@angular/forms';
+
+import { map, debounceTime } from 'rxjs';
 
 import { HomeService } from '@api/home/home.service';
 import { ScenicSpot, ActivityList, DelicacyList, AccommodationList } from '@api/home/types';
+
+interface typeOption  {
+  text: string;
+  value: string;
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,11 +22,11 @@ export class HomeComponent implements OnInit {
 
   selectedValue: string = '';
 
-  typeList: string[] = [
-    '旅遊景點',
-    '觀光活動',
-    '美食品嚐',
-    '住宿推薦',
+  typeList: typeOption[] = [
+    { text: '旅遊景點', value: 'scenic' },
+    { text: '觀光活動', value: 'activity' },
+    { text: '美食品嚐', value: 'delicacy' },
+    { text: '住宿推薦', value: 'accommodation' },
   ];
 
   cityList: string[] = [
@@ -57,6 +65,12 @@ export class HomeComponent implements OnInit {
   typeOption: string = '';
 
   cityOption: string = '';
+
+  searchForm = new FormGroup({
+    searchBar: new FormControl(''),
+    searchCity: new FormControl(''),
+    searchType: new FormControl('')
+  });
 
   constructor(
     private homeService: HomeService,
@@ -128,6 +142,12 @@ export class HomeComponent implements OnInit {
           });
         }
       });
+    this.searchForm.get('searchBar')?.valueChanges
+      .pipe(
+        debounceTime(300),
+        map(res => res.trim())
+      )
+      .subscribe(res => console.log(res));
 
   }
 
